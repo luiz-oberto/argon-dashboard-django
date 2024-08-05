@@ -182,7 +182,7 @@
       <!-- Inicio da linha dos cards -->
       <div class="row">
         <!-- início do card -->
-        <div class="col-xl-8">
+        {% comment %} <div class="col-xl-8">
           <div class="card">
             <div class="card-header border-0">
               <div class="row align-items-center">
@@ -193,8 +193,8 @@
                   <a href="#!" class="btn btn-sm btn-primary">See all</a>
                 </div>
               </div>
-            </div>
-            <div class="table-responsive">
+            </div> {% endcomment %}
+            {% comment %} <div class="table-responsive">
               <!-- Projects table -->
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
@@ -283,7 +283,8 @@
         </div>
 
         <div class="col-xl-4">
-          <div class="card">
+          <div class="card"> {% endcomment %}
+
             <!-- Card das estatísticas de visitação das redes  -->
             {% comment %} <div class="card-header border-0">
               <div class="row align-items-center">
