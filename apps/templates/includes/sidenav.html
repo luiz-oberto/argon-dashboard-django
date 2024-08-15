@@ -17,20 +17,27 @@
               <span class="nav-link-text">Dashboard</span>
             </a>
           </li>
+          {% comment %} navegar para cosulta {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link {% if 'consulta' in segment %} active {% endif %}" href="/consulta.html">
+              <i class="ni ni-zoom-split-in text-primary"></i>
+              <span class="nav-link-text">Consultar</span>
+            </a>
+          </li>
+
+          {% comment %} navegar para cadastro {% endcomment %}
+          <li class="nav-item">
+            <a class="nav-link {% if 'cadastrarProduto' in segment %} active {% endif %}" href="/cadastrar_produto.html">
+              <i class="ni ni-fat-add"></i>
+              <span class="nav-link-text">Cadastrar produto</span>
+            </a>
+
           <li class="nav-item">
             <a class="nav-link {% if 'icons' in segment %} active {% endif %}" href="/icons.html">
               <i class="ni ni-planet text-orange"></i>
               <span class="nav-link-text">Icons</span>
             </a>
           </li>
-          <!-- Google maps -->
-          {% comment %} <li class="nav-item">
-            <a class="nav-link {% if 'map' in segment %} active {% endif %}" href="/map.html">
-              <i class="ni ni-pin-3 text-primary"></i>
-              <span class="nav-link-text">Google</span>
-            </a>
-          </li> {% endcomment %}
-
           <li class="nav-item">
             <a class="nav-link {% if 'profile' in segment %} active {% endif %}" href="/profile.html">
               <i class="ni ni-single-02 text-yellow"></i>
