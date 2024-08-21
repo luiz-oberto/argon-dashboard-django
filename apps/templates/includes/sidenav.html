@@ -24,7 +24,8 @@
 
           {% comment %} cosulta {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link {% if 'consulta' in segment %} active {% endif %}" href="/consulta.html">
+            <!-- SE consulta-itens OU consulta-detentores estiver no segmento => ative a cor da div -->
+            <a class="nav-link {% if 'consulta-itens' in segment or 'consulta-detentores' in segment %} active {% endif %}" href="/consulta-itens.html">
               <i class="ni ni-zoom-split-in text-primary"></i>
               <span class="nav-link-text">Consultar</span>
             </a>
@@ -32,7 +33,7 @@
 
           {% comment %} Inclusão de material {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link {% if 'cadastrarProduto' in segment %} active {% endif %}" href="/cadastrar_produto.html">
+            <a class="nav-link {% if 'incluir-material' in segment %} active {% endif %}" href="/incluir-material.html">
               <i class="ni ni-fat-add"></i>
               <span class="nav-link-text">Incluir material</span>
             </a>

@@ -1,0 +1,108 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} consultar-dententores {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link rel="stylesheet" href="../../static/assets/css/style-consulta.css">
+{% endblock stylesheets %}
+
+{% block content %}
+    {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
+    <div class="header bg-primary pb-6">
+        <div class="containe-fluid">
+            <div class="header-body">
+                <div class="row align-items-center py-4">
+                    <div class="col-lg-6 col-7">
+                      <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
+                      <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                          <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                          {% comment %} navegação entre itens e detentores {% endcomment %}
+                          <li class="breadcrumb-item"><a href="consulta-itens.html" id="id-itens">Itens</a></li>
+                          <li class="breadcrumb-item active" aria-current="page"><a href="#">Detentores</a></li>
+                        </ol>
+                      </nav>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+      <div class="form-group mb-0">
+        <div class="input-group input-group-alternative input-group-merge">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-search"></i></span>
+          </div>
+          <input class="form-control" placeholder="Search" type="text">
+        </div>
+      </div>
+      <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </form>
+
+    <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Detentor Direto</th>
+              <th scope="col">UORG</th>
+              <th scope="col">Localização dos patrimônios móveis</th>
+              <th scope="col">Substituto eventual</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2º SG-PD <strong>LEANDRO</strong> CÉSAR DOS SANTOS</td>
+              <td>
+                <ul class="list-unstyled">
+                    <li>094940</li>
+                    <li>094940</li>
+                    <li>094940</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="list-unstyled">
+                    <li>SALA: CT07</li>
+                    <li>SALA: CT11-CT12</li>
+                    <li>DEPÓSITO DTI</li>
+                </ul>
+              </td>
+              <td>
+                <ul class="list-unstyled">
+                    <li>2S EMERSON PAULO LESSA DE AGUIAR</li>
+                    <li>SD-FN LUIZ OBERTO MATOS RAIOL</li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+                <td>2º SG-PD <strong>LEANDRO</strong> CÉSAR DOS SANTOS</td>
+                <td>
+                  <ul class="list-unstyled">
+                      <li>094940</li>
+                      <li>094940</li>
+                      <li>094940</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="list-unstyled">
+                      <li>SALA: CT07</li>
+                      <li>SALA: CT11-CT12</li>
+                      <li>DEPÓSITO DTI</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul class="list-unstyled">
+                      <li>2S EMERSON PAULO LESSA DE AGUIAR</li>
+                      <li>SD-FN LUIZ OBERTO MATOS RAIOL</li>
+                  </ul>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    
+
+{% endblock content %}

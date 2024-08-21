@@ -2,3 +2,26 @@
     padding-left: 30px;
     padding-right: 30px;
 }
+
+.navbar-search {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: -72px;
+}
+
+/* Estilizando o link */
+a#id-itens {
+    /* cor da donte de link */
+    color: #8898aa;
+    /* transição */
+    transition: .5s;
+}
+
+a#id-itens:hover {
+    /* cor que vai mudar quando o mouse passar em cima */
+    color: #6c63ff;
+}
+
+.container {
+    margin-top: 50px;
+}
