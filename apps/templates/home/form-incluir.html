@@ -2,10 +2,12 @@
 
 {% block title %} incluir-material {% endblock title %}
 
+{% load static %}
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}
-<link rel="stylesheet" href="../../static/assets/css/style-cadastro.css">
+<link rel="stylesheet" href="{% static "assets/css/style-forms.css" %}">
 {% endblock stylesheets %}
+
 
 {% block content %}
 
@@ -32,17 +34,12 @@
   <div class="container">
     <div class="row justify-content-center m-4">
         <div class="col-12 shadow p-3 mb-5 bg-white rounded">
-            <h2>Cadastrar produto</h2>
+            <h2>Cadastrar Material</h2>
             <form class="row">
-                <!-- Titulo -->
-                 <!-- <div class="col-12 mb-4">
-                    <label for="titulo" class="form-label">Título:</label>
-                    <input type="text" class="form-control" id="titulo" placeholder="Digite o nome do produto">
-                 </div> -->
                 <!-- descrição -->
                 <div class="col-12 mb-4">
                     <label for="descricao" class="form-label">Descrição:</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do produto">
+                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do material">
                  </div>
                 <!-- Nº patrimonial -->
                 <div class="col-6 mb-4">
@@ -62,34 +59,62 @@
                 </div>
                 <!-- Data de aquisição -->
                 <div class="col-6 mb-4">
+                    <p>Data de aquisição:</p>
                     <div class="form-group">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
-                            <input class="form-control datepicker" placeholder="Selecione a data" type="text">
+                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
                         </div>
                     </div>
                 </div>
-                <!-- condição do material -->
+                <!-- data de inclusão no sistema -->
                 <div class="col-6 mb-4">
-                    <label for="opcoes" class="form-label">Selecione o estado do material</label>
-                    <select class="form-select" name="opcoes" id="opcoes">
+                    <p>Data de inclusão no sistema:</p>
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                            </div>
+                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
+                        </div>
+                    </div>
+                </div>
+                <!-- Status -->
+                <div class="col-3 mb-4">
+                    <label for="status" class="form-label">Status:</label>
+                    <select class="form-select" name="status" id="status">
                         <option selected>Selecione uma opção</option>
-                        <option value="novo">Novo</option>
-                        <option value="usado">Usado</option>
-                        <option value="quebrado">Quebrado</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
                     </select>
                 </div>
-                <!-- 3. Checkbox -->
-                <div class="mb-4">
-                    <!-- <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="estoque">
-                        <label for="estoque" class="form-check-label">Em estoque?</label>
+                
+                <!-- condição do material -->
+                <div class="col-3 mb-4">
+                    <label for="estado" class="form-label">Estado do material</label>
+                        <select class="form-select" name="estado" id="estado">
+                            <option selected>Selecione uma opção</option>
+                            <option value="novo">Novo</option>
+                            <option value="usado">Usado</option>
+                            <option value="quebrado">Quebrado</option>
+                        </select>
+                    <!-- <label for="status" class="input-group">Estado de conservação:</label>
+                    <div class="dropdown" id="status-dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Selecione
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Novo</a>
+                          <a class="dropdown-item" href="#">Usado</a>
+                          <a class="dropdown-item" href="#">Quebrado</a>
+                        </div>
                     </div> -->
                 </div>
-                <!-- 4. Select - Categoria -->
-                <div class="col-12 mb-4">
+
+                <!-- Categoria -->
+                <div class="col-6 mb-4">
                     <label for="categoria" class="form-label">Categoria do produto</label>
                     <select class="form-select" name="categoria" id="categoria">
                         <option selected>Selecione uma opção</option>
@@ -97,6 +122,16 @@
                         <option value="escritorio">Material de escritório</option>
                         <option value="veiculo">Veículos</option>
                     </select>
+                </div>
+                <!-- origem do material -->
+                <div class="col-12 mb-4">
+                    <label for="descricao" class="form-label">Origem do material:</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Digite a origem">
+                 </div>
+                <!-- Observações -->
+                <div class="col-12 mb-4">
+                    <label for="content" class="form-label">Observações:</label>
+                    <textarea class="form-control" rows="5" placeholder="Observações sobre o material..."></textarea>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-primary">Cadastrar</button>
@@ -106,8 +141,8 @@
     </div>
  </div>
 
-{% block javascripts %}
-<script src="../../static/assets/js/argon.js"></script>
-{% endblock javascripts %}
+ <!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
 
 {% endblock content %}
+

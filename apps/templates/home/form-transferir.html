@@ -1,0 +1,114 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} transferir-material {% endblock title %}
+
+{% load static %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "assets/css/style-forms.css" %}">
+<!-- <link rel="stylesheet" href="../../static/assets/css/style-forms.css"> -->
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+<div class="header bg-primary pb-6" id="header">
+    <div class="containe-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-12 col-7">
+                  <h6 class="h2 text-white d-inline-block mb-0">Transferir material</h6>
+                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                      <li class="breadcrumb-item"><a href="#">Formulário</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">Em transferência</li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+  <!-- 1. Criar o formulário -->
+  <div class="container">
+    <div class="row justify-content-center m-4">
+        <div class="col-12 shadow p-3 mb-5 bg-white rounded">
+            <h2>Tranferir material</h2>
+            <form class="row" id="descricao-detentor">
+                <!-- Detentor destino -->
+                <div class="col-12 mb-4">
+                    <label for="descricao" class="form-label">Detentor destino:</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Digite o nome">
+                 </div>
+                <!-- Uorg destino -->
+                <div class="col-6 mb-4">
+                    <p>UORG destino:</p>
+                    <div class="input-group mb-4">
+                        <input type="text" class="form-control" placeholder="Digite a UORG">
+                    </div>
+                </div>
+                <!-- Local Destino -->
+                 <div class="col-6 mb-4">
+                    <p>Local de Destino:</p>
+                    <div class="input-group mb-4">
+                        {% comment %} <span class="input-group-text">R$</span> {% endcomment %}
+                        <input type="text" class="form-control" placeholder="local">
+                    </div>
+                </div>
+            </form>
+            <!-- MATERIAL -->
+            <form class="row">            
+                <!-- Número patrimonial -->
+                <div class="col-6 mb-4">
+                    <h3>Número de patrimônio:</h3>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">NP</span>
+                        <input type="text" class="form-control" placeholder="Número patrimonial">
+                    </div>
+                </div>
+                <!-- descrição do material -->
+                <div class="col-12 mb-4">
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do material">
+                 </div>
+                <!-- condição do material -->
+                <div class="col-3 mb-4">
+                    <label for="estado" class="form-label">Estado do material</label>
+                    <select class="form-select" name="estado" id="estado">
+                        <option selected>Selecione uma opção</option>
+                        <option value="novo">Novo</option>
+                        <option value="usado">Usado</option>
+                        <option value="quebrado">Quebrado</option>
+                    </select>
+                    <!-- <label for="status" class="input-group">Estado de conservação:</label>
+                    <div class="dropdown" id="status-dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Selecione
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Novo</a>
+                          <a class="dropdown-item" href="#">Usado</a>
+                          <a class="dropdown-item" href="#">Quebrado</a>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- Observações -->
+                <div class="col-12 mb-4">
+                    <label for="content" class="form-label">Observações:</label>
+                    <textarea class="form-control" rows="5" placeholder="Observações sobre o material..."></textarea>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary">Incluir</button>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>
+
+ <!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock content %}
+
