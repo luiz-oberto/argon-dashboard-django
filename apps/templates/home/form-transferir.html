@@ -44,26 +44,40 @@
                  </div>
                 <!-- Uorg destino -->
                 <div class="col-6 mb-4">
-                    <p>UORG destino:</p>
+                    <label for="UORG" class="form-label">UORG destino:</label>
+                    <select class="form-select" name="UORG" id="UORG">
+                        <option selected>Selecione uma opção</option>
+                        <option value="#">123456</option>
+                        <option value="#">345678</option>
+                        <option value="#">678910</option>
+                    </select>
+                    <!-- <p>UORG destino:</p>
                     <div class="input-group mb-4">
                         <input type="text" class="form-control" placeholder="Digite a UORG">
-                    </div>
+                    </div> -->
                 </div>
                 <!-- Local Destino -->
                  <div class="col-6 mb-4">
-                    <p>Local de Destino:</p>
+                    <label for="local" class="form-label">Local de destino:</label>
+                    <select class="form-select" name="local" id="local">
+                        <option selected>Selecione um local</option>
+                        <option value="#">CT07</option>
+                        <option value="#">CT11-CT12</option>
+                        <option value="#">DEPÓSITO DTI</option>
+                    </select>
+                    <!-- <p>Local de Destino:</p>
                     <div class="input-group mb-4">
-                        {% comment %} <span class="input-group-text">R$</span> {% endcomment %}
                         <input type="text" class="form-control" placeholder="local">
-                    </div>
+                    </div> -->
                 </div>
             </form>
+
             <!-- MATERIAL -->
             <form class="row">            
                 <!-- Número patrimonial -->
                 <div class="col-6 mb-4">
                     <h3>Número de patrimônio:</h3>
-                    <div class="input-group mb-4">
+                    <div class="input-group">
                         <span class="input-group-text">NP</span>
                         <input type="text" class="form-control" placeholder="Número patrimonial">
                     </div>
@@ -82,17 +96,6 @@
                         <option value="usado">Usado</option>
                         <option value="quebrado">Quebrado</option>
                     </select>
-                    <!-- <label for="status" class="input-group">Estado de conservação:</label>
-                    <div class="dropdown" id="status-dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Selecione
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Novo</a>
-                          <a class="dropdown-item" href="#">Usado</a>
-                          <a class="dropdown-item" href="#">Quebrado</a>
-                        </div>
-                    </div> -->
                 </div>
                 <!-- Observações -->
                 <div class="col-12 mb-4">
@@ -100,7 +103,69 @@
                     <textarea class="form-control" rows="5" placeholder="Observações sobre o material..."></textarea>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary">Incluir</button>
+                    <!-- botão de incluir itens -->
+                    <button class="btn btn-primary" type="submit">Incluir</button>
+                    <!-- Botão de ver os itens inclusos na transferência -->
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">
+                    ver itens
+                    </button>
+                
+                    <!-- OFF CANVAS -->
+                    <div class="offcanvas offcanvas-end" tabindex="1" id="offcanvasRight" aria-labelledby="OffcanvasLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvasLabel">Itens Incluidos</h5>
+                            <button class="btn-close text-reset" type="submit" type="button" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">Detentor de destino: </li>
+                                <li class="list-inline-item"><strong>SD HENRICK</strong></li>
+                            </ul>
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">NP</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>COMPUTADOR DELL 9020</td>
+                                    <td>123456</td>
+                                  </tr>
+                                  <tr>
+                                    <td>COMPUTADOR DELL 9020</td>
+                                    <td>789012</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                            <!-- <ul class="list-inline">
+                                <li class="list-inline-item">Detentor de destino: </li>
+                                <li class="list-inline-item"><strong>SD HENRICK</strong></li>
+                            </ul>
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">NP</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>COMPUTADOR DELL 9020</td>
+                                    <td>123456</td>
+                                  </tr>
+                                  <tr>
+                                    <td>COMPUTADOR DELL 9020</td>
+                                    <td>789012</td>
+                                  </tr>
+                                </tbody>
+                            </table> -->
+                            <button class="btn btn-primary" type="submit">Revisar transferência</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
