@@ -25,3 +25,9 @@ a#id-itens:hover {
 .container {
     margin-top: 50px;
 }
+
+#itens_em_inclusao {
+    position: relative;
+    z-index: 10;
+    margin-top: -72px;
+}

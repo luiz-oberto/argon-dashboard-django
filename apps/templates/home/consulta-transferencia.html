@@ -1,0 +1,70 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} consulta-transferencia {% endblock title %}
+
+{% load static %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "assets/css/style-consulta.css" %}">
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+<div class="header bg-primary pb-6" id="header">
+    <div class="containe-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-12 col-7">
+                  <h6 class="h2 text-white d-inline-block mb-0">Transferir material</h6>
+                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><a href="form-transferir.html" id="id-itens">Formulário</a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><a href="#">Em transferência</a></li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Origem</th>
+          <th scope="col">Destino</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Data abertura</th>
+          <th scope="col">Última atualização</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Detentor 1</td>
+          <td>Detentor 2</td>
+          <td>3 itens</td>
+          <td>10/08/2024</td>
+          <td>15/08/2024</td>
+          <td>Aguardando</td>
+        </tr>
+        <tr>
+            <td>Detentor 1</td>
+            <td>Detentor 3</td>
+            <td>1 itens</td>
+            <td>12/08/2024</td>
+            <td>17/08/2024</td>
+            <td>Aguardando</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+ <!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock content %}
+

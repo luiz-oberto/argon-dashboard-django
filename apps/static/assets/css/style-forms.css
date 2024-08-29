@@ -11,3 +11,16 @@
     border-bottom: 1px solid #ccc;
     margin-bottom: 10px;
 }
+
+/* Estilizando o link */
+a#id-itens {
+    /* cor da donte de link */
+    color: #8898aa;
+    /* transição */
+    transition: .5s;
+}
+
+a#id-itens:hover {
+    /* cor que vai mudar quando o mouse passar em cima */
+    color: #6c63ff;
+}
