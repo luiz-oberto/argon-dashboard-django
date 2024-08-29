@@ -42,3 +42,20 @@ a#id-itens:hover {
     /* sombreamento da caixa (dando a sensação de que está flutuando */
     box-shadow: .5px  10px 15px rgba(0, 0, 0, .2);
 }
+
+#consultar_detentores {
+    /* arrendondamento das bordas */
+    border-radius: 10px;
+    /* sombreamento da caixa (dando a sensação de que está flutuando */
+    box-shadow: .5px  10px 15px rgba(0, 0, 0, .2);
+}
+
+#consultar_tarnsferencia {
+    position: relative;
+    z-index: 10;
+    margin-top: -72px;
+    /* arrendondamento das bordas */
+    border-radius: 10px;
+    /* sombreamento da caixa (dando a sensação de que está flutuando */
+    box-shadow: .5px  10px 15px rgba(0, 0, 0, .2);
+}
