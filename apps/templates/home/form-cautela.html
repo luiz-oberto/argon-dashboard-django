@@ -1,0 +1,138 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} cautela-material {% endblock title %}
+
+{% load static %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "assets/css/style-forms.css" %}">
+{% endblock stylesheets %}
+
+
+{% block content %}
+
+<div class="header bg-primary pb-6">
+    <div class="containe-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                  <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
+                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                      {% comment %} A FAZER {% endcomment %}
+                      <li class="breadcrumb-item active" aria-current="page"><a href="consulta-cautela.html" id="id-itens">Cautelas</a></li>
+                      <li class="breadcrumb-item active"><a href="#" >Formulário de Cautela</a></li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+  <!-- 1. Criar o formulário -->
+  <div class="container">
+    <div class="row justify-content-center m-4">
+        <div class="col-12 shadow p-3 mb-5 bg-white rounded">
+            <h2>Cadastrar Material</h2>
+            <form class="row">
+                <!-- descrição -->
+                <div class="col-12 mb-4">
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do material">
+                 </div>
+                <!-- Nº patrimonial -->
+                <div class="col-6 mb-4">
+                    <p>Número de patrimônio:</p>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">NP</span>
+                        <input type="text" class="form-control" placeholder="Número patrimonial">
+                    </div>
+                </div>
+                <!-- preço -->
+                 <div class="col-6 mb-4">
+                    <p>preço:</p>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">R$</span>
+                        <input type="text" class="form-control" placeholder="Valor">
+                    </div>
+                </div>
+                <!-- Data de aquisição -->
+                <div class="col-6 mb-4">
+                    <p>Data de aquisição:</p>
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                            </div>
+                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
+                        </div>
+                    </div>
+                </div>
+                <!-- data de inclusão no sistema -->
+                <div class="col-6 mb-4">
+                    <p>Data de inclusão no sistema:</p>
+                    <div class="form-group">
+                        <div class="input-group input-group-alternative">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                            </div>
+                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
+                        </div>
+                    </div>
+                </div>
+                <!-- Status -->
+                <div class="col-3 mb-4">
+                    <label for="status" class="form-label">Status:</label>
+                    <select class="form-select" name="status" id="status">
+                        <option selected>Selecione uma opção</option>
+                        <option value="ativo">Ativo</option>
+                        <option value="inativo">Inativo</option>
+                    </select>
+                </div>
+                
+                <!-- condição do material -->
+                <div class="col-3 mb-4">
+                    <label for="estado" class="form-label">Estado do material</label>
+                        <select class="form-select" name="estado" id="estado">
+                            <option selected>Selecione uma opção</option>
+                            <option value="novo">Novo</option>
+                            <option value="usado">Usado</option>
+                            <option value="quebrado">Quebrado</option>
+                        </select>
+                </div>
+
+                <!-- Categoria -->
+                <div class="col-6 mb-4">
+                    <label for="categoria" class="form-label">Categoria do produto</label>
+                    <select class="form-select" name="categoria" id="categoria">
+                        <option selected>Selecione uma opção</option>
+                        <option value="informatica">Material de informatica</option>
+                        <option value="escritorio">Material de escritório</option>
+                        <option value="veiculo">Veículos</option>
+                    </select>
+                </div>
+                <!-- origem do material -->
+                <div class="col-12 mb-4">
+                    <label for="descricao" class="form-label">Origem do material:</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Digite a origem">
+                 </div>
+                <!-- Observações -->
+                <div class="col-12 mb-4">
+                    <label for="content" class="form-label">Observações:</label>
+                    <textarea class="form-control" rows="5" placeholder="Observações sobre o material..."></textarea>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+ </div>
+
+ <!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}
+
+{% endblock content %}
+
