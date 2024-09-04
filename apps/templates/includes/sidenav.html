@@ -57,7 +57,7 @@
 
           {% comment %} cautela {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link {% if 'consulta-cautela' in segment %} active {% endif %}" href="/consulta-cautela.html">
+            <a class="nav-link {% if 'consulta-cautela' in segment or  'form-cautela' in segment %} active {% endif %}" href="/consulta-cautela.html">
               <i class="bi bi-person-fill-lock"></i>
               <span class="nav-link-text">Cautela</span>
             </a>

@@ -12,7 +12,7 @@
 {% block content %}
 
 <div class="header bg-primary pb-6">
-    <div class="containe-fluid">
+    <div class="container-fluid">
         <div class="header-body">
             <div class="row align-items-center py-4">
                 <div class="col-lg-6 col-7">
@@ -31,100 +31,125 @@
     </div>
 </div>
 
-  <!-- 1. Criar o formulário -->
-  <div class="container">
+<div class="container">
     <div class="row justify-content-center m-4">
         <div class="col-12 shadow p-3 mb-5 bg-white rounded">
-            <h2>Cadastrar Material</h2>
-            <form class="row">
-                <!-- descrição -->
+            <h2>Cautelar material</h2>
+            <form class="row" id="descricao-responsavel">
+                <!-- Responsável -->
                 <div class="col-12 mb-4">
-                    <label for="descricao" class="form-label">Descrição:</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do material">
+                    <label for="responsavel" class="form-label">Responsável:</label>
+                    <input type="text" class="form-control" id="responsavel" placeholder="Nome do responsavel">
                  </div>
-                <!-- Nº patrimonial -->
+                <!-- Uorg Resposável -->
+                <div class="col-4 mb-4">
+                    <label for="UORG" class="form-label">UORG do reponsável:</label>
+                    <select class="form-select" name="UORG" id="UORG">
+                        <option selected>Selecione uma opção</option>
+                        <option value="#">123456</option>
+                        <option value="#">345678</option>
+                        <option value="#">678910</option>
+                    </select>
+                </div>
+                <!-- Número de contato -->
+                <div class="col-4 mb-4">
+                    <label for="numero-contato" class="form-label">Número para contato:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="">
+                    </div>
+                </div>
+                <!-- CPF -->
+                <div class="col-4 mb-4">
+                    <label for="local" class="form-label">CPF:</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Insira o CPF">
+                    </div>
+                </div>
+            </form>
+
+            <!-- ----------------------------------------------------------------------- -->
+            <!-- MATERIAL -->
+            <form class="row">            
+                <!-- Número patrimonial -->
                 <div class="col-6 mb-4">
-                    <p>Número de patrimônio:</p>
-                    <div class="input-group mb-4">
+                    <h3>Número de patrimônio:</h3>
+                    <div class="input-group">
                         <span class="input-group-text">NP</span>
                         <input type="text" class="form-control" placeholder="Número patrimonial">
                     </div>
                 </div>
-                <!-- preço -->
-                 <div class="col-6 mb-4">
-                    <p>preço:</p>
-                    <div class="input-group mb-4">
-                        <span class="input-group-text">R$</span>
-                        <input type="text" class="form-control" placeholder="Valor">
-                    </div>
-                </div>
-                <!-- Data de aquisição -->
+                <!-- local de destino -->
                 <div class="col-6 mb-4">
-                    <p>Data de aquisição:</p>
-                    <div class="form-group">
-                        <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                            </div>
-                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
-                        </div>
-                    </div>
-                </div>
-                <!-- data de inclusão no sistema -->
-                <div class="col-6 mb-4">
-                    <p>Data de inclusão no sistema:</p>
-                    <div class="form-group">
-                        <div class="input-group input-group-alternative">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                            </div>
-                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
-                        </div>
-                    </div>
-                </div>
-                <!-- Status -->
-                <div class="col-3 mb-4">
-                    <label for="status" class="form-label">Status:</label>
-                    <select class="form-select" name="status" id="status">
-                        <option selected>Selecione uma opção</option>
-                        <option value="ativo">Ativo</option>
-                        <option value="inativo">Inativo</option>
+                    <label for="local" class="form-label">Local de destino:</label>
+                    <select class="form-select" name="local" id="local">
+                        <option selected>Selecione um local</option>
+                        <option value="#">CT07</option>
+                        <option value="#">CT11-CT12</option>
+                        <option value="#">DEPÓSITO DTI</option>
                     </select>
                 </div>
-                
+                <!-- descrição do material -->
+                <div class="col-12 mb-4">
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do material">
+                 </div>
                 <!-- condição do material -->
                 <div class="col-3 mb-4">
                     <label for="estado" class="form-label">Estado do material</label>
-                        <select class="form-select" name="estado" id="estado">
-                            <option selected>Selecione uma opção</option>
-                            <option value="novo">Novo</option>
-                            <option value="usado">Usado</option>
-                            <option value="quebrado">Quebrado</option>
-                        </select>
-                </div>
-
-                <!-- Categoria -->
-                <div class="col-6 mb-4">
-                    <label for="categoria" class="form-label">Categoria do produto</label>
-                    <select class="form-select" name="categoria" id="categoria">
+                    <select class="form-select" name="estado" id="estado">
                         <option selected>Selecione uma opção</option>
-                        <option value="informatica">Material de informatica</option>
-                        <option value="escritorio">Material de escritório</option>
-                        <option value="veiculo">Veículos</option>
+                        <option value="novo">Novo</option>
+                        <option value="usado">Usado</option>
+                        <option value="quebrado">Quebrado</option>
                     </select>
                 </div>
-                <!-- origem do material -->
-                <div class="col-12 mb-4">
-                    <label for="descricao" class="form-label">Origem do material:</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Digite a origem">
-                 </div>
                 <!-- Observações -->
                 <div class="col-12 mb-4">
                     <label for="content" class="form-label">Observações:</label>
                     <textarea class="form-control" rows="5" placeholder="Observações sobre o material..."></textarea>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary">Cadastrar</button>
+                    <!-- botão de incluir itens -->
+                    <button class="btn btn-primary" type="submit">Incluir</button>
+                    <!-- Botão de ver os itens inclusos na transferência -->
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">
+                    ver itens
+                    </button>
+                
+                    <!-- OFF CANVAS -->
+                    <div class="offcanvas offcanvas-end" tabindex="1" id="offcanvasRight" aria-labelledby="OffcanvasLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvasLabel">Itens Incluidos</h5>
+                            <button class="btn-close text-reset" type="submit" type="button" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="list-inline">
+                                <li class="list-inline-item">Responsável: </li>
+                                <li class="list-inline-item"><strong>SD HENRICK</strong></li>
+                            </ul>
+                            <table class="table table-striped">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">NP</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>COMPUTADOR DELL 9020</td>
+                                    <td>123456</td>
+                                  </tr>
+                                  <tr>
+                                    <td>COMPUTADOR DELL 9020</td>
+                                    <td>789012</td>
+                                  </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn btn-primary" type="submit">Revisar transferência</button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
