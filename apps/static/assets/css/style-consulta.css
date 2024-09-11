@@ -60,6 +60,8 @@ a#id-itens:hover {
     box-shadow: .5px  10px 15px rgba(0, 0, 0, .2);
 }
 
-/* #navbarSupportedContent {
+/* BREADCRUMBS */
+#breadcrumbs {
     margin: auto;
-} */
+    padding-top: 10px;
+}

@@ -2,41 +2,44 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- faz aparecer o breadcrumb de cada página -->
-      {% if request.path == '/consulta-relatorio.html' %}
-        {% include "includes/breadcrumbs.html" %}
-      {% endif %}
-      <!-- Search form -->
-      {% comment %} <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-        <div class="form-group mb-0">
-          <div class="input-group input-group-alternative input-group-merge">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-search"></i></span>
-            </div>
-            <input class="form-control" placeholder="Search" type="text">
+
+       {% if request.path == '/consulta-relatorio.html' %}
+        <div class="container"  id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;"-->
+          <div class="row align-items-center"> {% comment "" %}align-items-center py-4{% endcomment %}
+              <div class="col align-self-center"> <!--col-lg-12 col-12 -->
+                  <h6 class="h2 text-white d-inline-block mb-0">Emissão de relatórios</h6>
+                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                      <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                          <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                          <li class="breadcrumb-item"><a href="#">Relatório de Registros</a></li>
+                          <li class="breadcrumb-item active" aria-current="page"><a href="#" id="id-itens">Relatório para
+                                  Homologação</a></li>
+                      </ol>
+                  </nav>
+              </div>
           </div>
         </div>
-        <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </form> {% endcomment %}
-      {% comment %} <div class="header bg-primary">
-        <div class="containe-fluid">
-            <div class="header-body">
-                <div class="row">
-                    <div class="col-lg-6 col-7">
-                      <h6 class="h2 text-white d-inline-block mb-0">Inclusão de material</h6>
+       {% endif %}
+
+       {% if request.path == '/consulta-instrucao.html' %}
+        <div class="container" id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;-->
+                <div class="row align-items-center">
+                    <div class="col-lg-12 col-12">
+                      <h6 class="h2 text-white d-inline-block mb-0">Instruções normativas</h6>
                       <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                           <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                          <li class="breadcrumb-item"><a href="#">Incluir</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Default</li>
+                          <li class="breadcrumb-item"><a href="#">Documentos</a></li>
+                          {% comment %} <li class="breadcrumb-item active" aria-current="page"><a href="#">...</a></li> {% endcomment %}
                         </ol>
                       </nav>
                     </div>
                   </div>
-            </div>
-        </div>
-    </div> {% endcomment %}
+    </div>
+       {% endif %}
+
+     
+
       <!-- Navbar links -->
       <ul class="navbar-nav align-items-center  ml-md-auto ">
         <li class="nav-item d-xl-none">

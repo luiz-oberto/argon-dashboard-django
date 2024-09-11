@@ -8,9 +8,9 @@
 {% endblock stylesheets %}
 
 {% block content %}
-    {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
+
     <div class="header bg-primary pb-6">
-        <div class="containe-fluid">
+        {% comment %} <div class="containe-fluid">
             <div class="header-body">
                 <div class="row align-items-center py-4">
                     <div class="col-lg-6 col-7">
@@ -19,13 +19,13 @@
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                           <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                           <li class="breadcrumb-item"><a href="#">Documentos</a></li>
-                          {% comment %} <li class="breadcrumb-item active" aria-current="page"><a href="#">...</a></li> {% endcomment %}
+                          {% comment %} <li class="breadcrumb-item active" aria-current="page"><a href="#">...</a></li>
                         </ol>
                       </nav>
                     </div>
                   </div>
             </div>
-        </div>
+        </div> {% endcomment %}
     </div>
 
     <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
