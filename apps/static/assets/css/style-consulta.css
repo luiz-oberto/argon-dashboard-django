@@ -60,6 +60,17 @@ a#id-itens:hover {
     box-shadow: .5px  10px 15px rgba(0, 0, 0, .2);
 }
 
+#lista_cautelas {
+    position: relative;
+    z-index: 10;
+    margin-top: -72px;
+    /* arrendondamento das bordas */
+    border-radius: 10px;
+    /* sombreamento da caixa (dando a sensação de que está flutuando */
+    box-shadow: .5px  10px 15px rgba(0, 0, 0, .2);
+}
+
+
 /* BREADCRUMBS */
 #breadcrumbs {
     margin: auto;
