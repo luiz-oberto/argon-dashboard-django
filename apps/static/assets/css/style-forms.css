@@ -29,3 +29,10 @@ a#id-itens:hover {
     /* cor que vai mudar quando o mouse passar em cima */
     color: #6c63ff;
 }
+
+/* BREADCRUMBS */
+/* BREADCRUMBS */
+#breadcrumbs {
+    margin: auto;
+    padding-top: 10px;
+}

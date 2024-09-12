@@ -39,10 +39,51 @@
             </div>
         </div>
       </div>
+      {% endif %}
+
+    <!-- INCLUIR MATERIAL -->
+    {% if request.path == '/consulta-inclusao.html' %}
+      <div class="container" id='breadcrumbs'>
+        <div class="header-body">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-12">
+                  <h6 class="h2 text-white d-inline-block mb-0">Inclusão de material</h6>
+                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><a href="#" >Em processo de inclusão</a></li>
+                      <li class="breadcrumb-item active"><a href="form-incluir.html" id="id-itens">Formulário de inclusão</a></li>
+                    </ol>
+                  </nav>
+                </div>
+            </div>
+        </div>
+      </div>
     {% endif %}
 
-    <!-- iNCLUIR MATERIAL -->
+    <!-- FORM-INCLUIR-MATERIAL  -->
+    {% if request.path == '/form-incluir.html' %}
+    <div class="container" id='breadcrumbs'>
+      <div class="header-body">
+          <div class="row align-items-center">
+              <div class="col-lg-12 col-12">
+                <h6 class="h2 text-white d-inline-block mb-0">Inclusão de material</h6>
+                <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                  <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="consulta-inclusao.html" id="id-itens">Em processo de inclusão</a></li>
+                    <li class="breadcrumb-item"><a href="#">Formulário de inclusão</a></li>
+                  </ol>
+                </nav>
+              </div>
+          </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- TRANFERÊNCIAS -->
     
+
     
 
       <!-- CONSULTA RELATÓRIO -->
