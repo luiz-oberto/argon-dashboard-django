@@ -3,6 +3,49 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- faz aparecer o breadcrumb de cada página -->
 
+      <!--##### BREADCRUMBS #####-->
+      <!-- CONSULTAS -->
+      {% if request.path == '/consulta-itens.html' %}
+        <div class="container" id="breadcrumbs">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-12">
+                  <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
+                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                      {% comment %} navegação entre itens e detentores {% endcomment %}
+                      <li class="breadcrumb-item"><a href="#">Itens</a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><a href="consulta-detentores.html" id="id-itens">Detentores</a></li>
+                    </ol>
+                  </nav>
+              </div>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if request.path == '/consulta-detentores.html' %}
+      <div class="container" id="breadcrumbs">
+          <div class="row align-items-center">
+              <div class="col-lg-12 col-12">
+                <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
+                <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                  <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                    {% comment %} navegação entre itens e detentores {% endcomment %}
+                    <li class="breadcrumb-item"><a href="consulta-itens.html" id="id-itens">Itens</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="#">Detentores</a></li>
+                  </ol>
+                </nav>
+            </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- iNCLUIR MATERIAL -->
+    
+    
+
+      <!-- CONSULTA RELATÓRIO -->
        {% if request.path == '/consulta-relatorio.html' %}
         <div class="container"  id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;"-->
           <div class="row align-items-center"> {% comment "" %}align-items-center py-4{% endcomment %}
@@ -21,6 +64,7 @@
         </div>
        {% endif %}
 
+       <!-- CONSULTA INSTRUÇÃO -->
        {% if request.path == '/consulta-instrucao.html' %}
         <div class="container" id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;-->
                 <div class="row align-items-center">
