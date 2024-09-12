@@ -6,124 +6,167 @@
       <!--##### BREADCRUMBS #####-->
       <!-- CONSULTAS -->
       {% if request.path == '/consulta-itens.html' %}
-        <div class="container" id="breadcrumbs">
-            <div class="row align-items-center">
-                <div class="col-lg-12 col-12">
-                  <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
-                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                      {% comment %} navegação entre itens e detentores {% endcomment %}
-                      <li class="breadcrumb-item"><a href="#">Itens</a></li>
-                      <li class="breadcrumb-item active" aria-current="page"><a href="consulta-detentores.html" id="id-itens">Detentores</a></li>
-                    </ol>
-                  </nav>
-              </div>
+      <div class="container" id="breadcrumbs">
+        <div class="row align-items-center">
+          <div class="col-lg-12 col-12">
+            <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                {% comment %} navegação entre itens e detentores {% endcomment %}
+                <li class="breadcrumb-item"><a href="#">Itens</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="consulta-detentores.html"
+                    id="id-itens">Detentores</a></li>
+              </ol>
+            </nav>
           </div>
         </div>
+      </div>
       {% endif %}
 
       {% if request.path == '/consulta-detentores.html' %}
       <div class="container" id="breadcrumbs">
-          <div class="row align-items-center">
-              <div class="col-lg-12 col-12">
-                <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
-                <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                  <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                    {% comment %} navegação entre itens e detentores {% endcomment %}
-                    <li class="breadcrumb-item"><a href="consulta-itens.html" id="id-itens">Itens</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="#">Detentores</a></li>
-                  </ol>
-                </nav>
-            </div>
+        <div class="row align-items-center">
+          <div class="col-lg-12 col-12">
+            <h6 class="h2 text-white d-inline-block mb-0">Consultar</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                {% comment %} navegação entre itens e detentores {% endcomment %}
+                <li class="breadcrumb-item"><a href="consulta-itens.html" id="id-itens">Itens</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="#">Detentores</a></li>
+              </ol>
+            </nav>
+          </div>
         </div>
       </div>
       {% endif %}
 
-    <!-- INCLUIR MATERIAL -->
-    {% if request.path == '/consulta-inclusao.html' %}
+      <!-- INCLUIR MATERIAL -->
+      {% if request.path == '/consulta-inclusao.html' %}
       <div class="container" id='breadcrumbs'>
         <div class="header-body">
-            <div class="row align-items-center">
-                <div class="col-lg-12 col-12">
-                  <h6 class="h2 text-white d-inline-block mb-0">Inclusão de material</h6>
-                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                      <li class="breadcrumb-item active" aria-current="page"><a href="#" >Em processo de inclusão</a></li>
-                      <li class="breadcrumb-item active"><a href="form-incluir.html" id="id-itens">Formulário de inclusão</a></li>
-                    </ol>
-                  </nav>
-                </div>
+          <div class="row align-items-center">
+            <div class="col-lg-12 col-12">
+              <h6 class="h2 text-white d-inline-block mb-0">Inclusão de material</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="#">Em processo de inclusão</a></li>
+                  <li class="breadcrumb-item active"><a href="form-incluir.html" id="id-itens">Formulário de
+                      inclusão</a></li>
+                </ol>
+              </nav>
             </div>
+          </div>
         </div>
       </div>
-    {% endif %}
+      {% endif %}
 
-    <!-- FORM-INCLUIR-MATERIAL  -->
-    {% if request.path == '/form-incluir.html' %}
-    <div class="container" id='breadcrumbs'>
-      <div class="header-body">
+      <!-- FORM-INCLUIR-MATERIAL  -->
+      {% if request.path == '/form-incluir.html' %}
+      <div class="container" id='breadcrumbs'>
+        <div class="header-body">
           <div class="row align-items-center">
-              <div class="col-lg-12 col-12">
-                <h6 class="h2 text-white d-inline-block mb-0">Inclusão de material</h6>
-                <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                  <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                    <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="consulta-inclusao.html" id="id-itens">Em processo de inclusão</a></li>
-                    <li class="breadcrumb-item"><a href="#">Formulário de inclusão</a></li>
-                  </ol>
-                </nav>
-              </div>
+            <div class="col-lg-12 col-12">
+              <h6 class="h2 text-white d-inline-block mb-0">Inclusão de material</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="consulta-inclusao.html"
+                      id="id-itens">Em processo de inclusão</a></li>
+                  <li class="breadcrumb-item"><a href="#">Formulário de inclusão</a></li>
+                </ol>
+              </nav>
+            </div>
           </div>
+        </div>
       </div>
-    </div>
-    {% endif %}
+      {% endif %}
 
-    <!-- TRANFERÊNCIAS -->
-    
+      <!-- TRANFERÊNCIAS -->
+      {% if request.path == '/consulta-transferencia.html' %}
+      <div class="container" id='breadcrumbs'>
+        <div class="header-body">
+          <div class="row align-items-center">
+            <div class="col-lg-12 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Transferir material</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="#">Em transferência</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="form-transferir.html"
+                      id="id-itens">Formulário de transferência</a></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
 
-    
+      {% if request.path == '/form-transferir.html' %}
+      <div class="container" id='breadcrumbs'>
+        <div class="header-body">
+          <div class="row align-items-center">
+            <div class="col-lg-12 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0">Transferir material</h6>
+              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item active" aria-current="page"><a href="consulta-transferencia.html"
+                      id="id-itens">Em transferência</a></li>
+                  <li class="breadcrumb-item"><a href="#">Formulário de transferência</a></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- CAUTELA -->
+
 
       <!-- CONSULTA RELATÓRIO -->
-       {% if request.path == '/consulta-relatorio.html' %}
-        <div class="container"  id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;"-->
-          <div class="row align-items-center"> {% comment "" %}align-items-center py-4{% endcomment %}
-              <div class="col align-self-center"> <!--col-lg-12 col-12 -->
-                  <h6 class="h2 text-white d-inline-block mb-0">Emissão de relatórios</h6>
-                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                      <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                          <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                          <li class="breadcrumb-item"><a href="#">Relatório de Registros</a></li>
-                          <li class="breadcrumb-item active" aria-current="page"><a href="#" id="id-itens">Relatório para
-                                  Homologação</a></li>
-                      </ol>
-                  </nav>
-              </div>
+      {% if request.path == '/consulta-relatorio.html' %}
+      <div class="container" id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;"-->
+        <div class="row align-items-center"> {% comment "" %}align-items-center py-4{% endcomment %}
+          <div class="col align-self-center"> <!--col-lg-12 col-12 -->
+            <h6 class="h2 text-white d-inline-block mb-0">Emissão de relatórios</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="#">Relatório de Registros</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="#" id="id-itens">Relatório para
+                    Homologação</a></li>
+              </ol>
+            </nav>
           </div>
         </div>
-       {% endif %}
+      </div>
+      {% endif %}
 
-       <!-- CONSULTA INSTRUÇÃO -->
-       {% if request.path == '/consulta-instrucao.html' %}
-        <div class="container" id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;-->
-                <div class="row align-items-center">
-                    <div class="col-lg-12 col-12">
-                      <h6 class="h2 text-white d-inline-block mb-0">Instruções normativas</h6>
-                      <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                          <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                          <li class="breadcrumb-item"><a href="#">Documentos</a></li>
-                          {% comment %} <li class="breadcrumb-item active" aria-current="page"><a href="#">...</a></li> {% endcomment %}
-                        </ol>
-                      </nav>
-                    </div>
-                  </div>
-    </div>
-       {% endif %}
+      <!-- CONSULTA INSTRUÇÃO -->
+      {% if request.path == '/consulta-instrucao.html' %}
+      <div class="container" id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;-->
+        <div class="row align-items-center">
+          <div class="col-lg-12 col-12">
+            <h6 class="h2 text-white d-inline-block mb-0">Instruções normativas</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="#">Documentos</a></li>
+                {% comment %} <li class="breadcrumb-item active" aria-current="page"><a href="#">...</a></li> {%
+                endcomment %}
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      {% endif %}
 
-     
+
 
       <!-- Navbar links -->
       <ul class="navbar-nav align-items-center  ml-md-auto ">
@@ -157,7 +200,8 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="/static/assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="/static/assets/img/theme/team-1.jpg"
+                      class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -176,7 +220,8 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="/static/assets/img/theme/team-2.jpg" class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="/static/assets/img/theme/team-2.jpg"
+                      class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -195,7 +240,8 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="/static/assets/img/theme/team-3.jpg" class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="/static/assets/img/theme/team-3.jpg"
+                      class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -214,7 +260,8 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="/static/assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="/static/assets/img/theme/team-4.jpg"
+                      class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -233,7 +280,8 @@
                 <div class="row align-items-center">
                   <div class="col-auto">
                     <!-- Avatar -->
-                    <img alt="Image placeholder" src="/static/assets/img/theme/team-5.jpg" class="avatar rounded-circle">
+                    <img alt="Image placeholder" src="/static/assets/img/theme/team-5.jpg"
+                      class="avatar rounded-circle">
                   </div>
                   <div class="col ml--2">
                     <div class="d-flex justify-content-between align-items-center">
@@ -253,11 +301,12 @@
             <a href="#!" class="dropdown-item text-center text-primary font-weight-bold py-3">View all</a>
           </div>
         </li>
-         
+
       </ul>
       <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
         <li class="nav-item dropdown">
-          <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
                 <img alt="Image placeholder" src="/static/assets/img/theme/team-4.jpg">
