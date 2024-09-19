@@ -145,6 +145,26 @@
       </div>
       {% endif %}
 
+      <!-- DESCARGA -->
+      {% if request.path == '/consulta-em-descarga.html' %}
+      <div class="container" id='breadcrumbs'>
+        <div class="header-body">
+            <div class="row align-items-center">
+                <div class="col-lg-12 col-12">
+                  <h6 class="h2 text-white d-inline-block mb-0">Descarga de materiais</h6>
+                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                      <li class="breadcrumb-item active" aria-current="page"><a href="#" >Em descarga</a></li>
+                      {% comment %} <li class="breadcrumb-item active"><a href="form-cautela.html" id="id-itens">Formulário de Cautela</a></li> {% endcomment %}
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+        </div>
+      </div>
+      {% endif %}
+
       <!-- CAUTELA -->
       {% if request.path == '/consulta-cautela.html' %}
       <div class="container" id='breadcrumbs'>
@@ -185,7 +205,7 @@
        {% endif %}
 
       <!-- CONSULTA RELATÓRIO -->
-      {% if request.path == '/consulta-relatorio.html' %}
+      {% if request.path == '/consulta-relatorio-registros.html' %}
       <div class="container" id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;"-->
         <div class="row align-items-center"> {% comment "" %}align-items-center py-4{% endcomment %}
           <div class="col align-self-center"> <!--col-lg-12 col-12 -->
@@ -194,7 +214,26 @@
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                 <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
                 <li class="breadcrumb-item"><a href="#">Relatório de Registros</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="#" id="id-itens">Relatório para
+                <li class="breadcrumb-item active" aria-current="page"><a href="consulta-relatorio-homologacao.html" id="id-itens">Relatório para
+                    Homologação</a></li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- CONSULTA HOMOLOGAÇÃO -->
+      {% if request.path == '/consulta-relatorio-homologacao.html' %}
+      <div class="container" id='breadcrumbs'> <!-- style="margin: auto; padding-top: 10px;"-->
+        <div class="row align-items-center"> {% comment "" %}align-items-center py-4{% endcomment %}
+          <div class="col align-self-center"> <!--col-lg-12 col-12 -->
+            <h6 class="h2 text-white d-inline-block mb-0">Emissão de relatórios</h6>
+            <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+              <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="consulta-relatorio-registros.html" id="id-itens">Relatório de Registros</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="#" >Relatório para
                     Homologação</a></li>
               </ol>
             </nav>

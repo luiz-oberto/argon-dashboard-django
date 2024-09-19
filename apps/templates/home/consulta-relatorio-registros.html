@@ -12,31 +12,25 @@
 <div class="header bg-primary pb-6"></div>
 
 {% comment %} search bar {% endcomment %}
-<form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-    <!-- <div class="form-group mb-0">
-        <div class="input-group input-group-alternative input-group-merge">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
-          </div>
-          <input class="form-control" placeholder="Search" type="text">
-        </div>
-      </div> -->
-
+<form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-data">
     <!-- Data de aquisição -->
     <div class="col-6 mb-4">
-        <p>Data de aquisição:</p>
+        <h3>Selecione o período</h3>
+        <!-- <p id="titulo-data"><strong>Selecione o período</strong></p> -->
         <div class="form-group">
+            <h4>De</h4>
             <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                 </div>
                 <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
             </div>
+            <h4>a</h4>
         </div>
     </div>
     <!-- data de inclusão no sistema -->
     <div class="col-6 mb-4">
-        <p>Data de inclusão no sistema:</p>
+        <!-- <p id="titulo-data"><strong>Data de inclusão no sistema:</strong></p> -->
         <div class="form-group">
             <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
@@ -49,7 +43,6 @@
 </form>
 
 <div class="container">
-    <!-- <h4></h4> -->
     <table class="table table-striped" id='consultar_itens'>
         <thead>
             <tr>

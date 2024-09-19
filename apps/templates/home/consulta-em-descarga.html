@@ -1,0 +1,42 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Consultar-relatorios {% endblock title %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+<link rel="stylesheet" href="../../static/assets/css/style-consulta.css">
+{% endblock stylesheets %}
+
+{% block content %}
+
+<div class="header bg-primary pb-6">
+    <button type="button" class="btn btn-default btn-sm">Botão de navegação</button>
+    <button type="button" class="btn btn-secondary btn-sm">Botão de navegação 2</button>
+</div>
+
+<div class="container">
+    <!-- <h4></h4> -->
+    <table class="table table-striped" id='lista'>
+        <thead>
+            <tr>
+                <th scope="col">Número patrimonial</th>
+                <th scope="col">Descrição do material</th>
+                <th scope="col">Motivo</th>
+                <th scope="col">Data de inclusão no lote</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1234567</td>
+                <td>Descrição 1</td>
+                <td>Motivo tal</td>
+                <td>DD/MM/AAAA</td>
+                <td>quebrado</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <button type="button" class="btn btn-default">Imprimir</button> -->
+</div>
+
+{% endblock content %}
