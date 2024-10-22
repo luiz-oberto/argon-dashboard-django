@@ -35,37 +35,41 @@
     <div class="row justify-content-center m-4">
         <div class="col-12 shadow p-3 mb-5 bg-white rounded">
             <h2>Cadastrar Material</h2>
-            <form class="row">
+            <form class="row" method="POST" action="{% url 'adicionar_material' %}">
+                {% csrf_token %}
                 <!-- descrição -->
                 <div class="col-12 mb-4">
                     <label for="descricao" class="form-label">Descrição:</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do material">
+                    <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Descrição do material" required>
                  </div>
                 <!-- Nº patrimonial -->
                 <div class="col-6 mb-4">
-                    <p>Número de patrimônio:</p>
+                    <label for="numero_patrimonio">Número de patrimônio:</label>
+                    <!-- <p>Número de patrimônio:</p> -->
                     <div class="input-group mb-4">
                         <span class="input-group-text">NP</span>
-                        <input type="text" class="form-control" placeholder="Número patrimonial">
+                        <input type="text" class="form-control" placeholder="Número patrimonial" maxlength="7" id="numero_patrimonio" name="numero_patrimonio" required>
                     </div>
                 </div>
                 <!-- preço -->
                  <div class="col-6 mb-4">
-                    <p>preço:</p>
+                    <label for="preco">Preço:</label>
+                    <!-- <p>preço:</p> -->
                     <div class="input-group mb-4">
                         <span class="input-group-text">R$</span>
-                        <input type="text" class="form-control" placeholder="Valor">
+                        <input type="text" class="form-control" placeholder="Valor" id="preco" name="preco" required>
                     </div>
                 </div>
                 <!-- Data de aquisição -->
                 <div class="col-6 mb-4">
-                    <p>Data de aquisição:</p>
+                    <label for="data_aquisicao">Data de aquisição:</label>
+                    <!-- <p>Data de aquisição:</p> -->
                     <div class="form-group">
                         <div class="input-group input-group-alternative">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
-                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
+                            <input class="form-control datepicker dates" placeholder="Select date" type="text" id="data_aquisicao" name="data_aquisicao" required>
                         </div>
                     </div>
                 </div>
@@ -77,14 +81,14 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                             </div>
-                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text">
+                            <input class="form-control datepicker dates[pt-BR]" placeholder="Select date" type="text" disabled>
                         </div>
                     </div>
                 </div>
                 <!-- Status -->
                 <div class="col-3 mb-4">
                     <label for="status" class="form-label">Status:</label>
-                    <select class="form-select" name="status" id="status">
+                    <select class="form-select" name="status" id="status" required>
                         <option selected>Selecione uma opção</option>
                         <option value="ativo">Ativo</option>
                         <option value="inativo">Inativo</option>
@@ -94,7 +98,7 @@
                 <!-- condição do material -->
                 <div class="col-3 mb-4">
                     <label for="estado" class="form-label">Estado do material</label>
-                        <select class="form-select" name="estado" id="estado">
+                        <select class="form-select" name="estado" id="estado" required>
                             <option selected>Selecione uma opção</option>
                             <option value="novo">Orçamentário</option>
                             <option value="usado">Extra orçamentário</option>
@@ -104,7 +108,7 @@
                 <!-- Categoria -->
                 <div class="col-6 mb-4">
                     <label for="categoria" class="form-label">Categoria do produto</label>
-                    <select class="form-select" name="categoria" id="categoria">
+                    <select class="form-select" name="categoria" id="categoria" required>
                         <option selected>Selecione uma opção</option>
                         <option value="informatica">Material de informatica</option>
                         <option value="escritorio">Material de escritório</option>
@@ -114,15 +118,15 @@
                 <!-- origem do material -->
                 <div class="col-12 mb-4">
                     <label for="descricao" class="form-label">Origem do material:</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Digite a origem">
+                    <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Digite a origem" required>
                  </div>
                 <!-- Observações -->
                 <div class="col-12 mb-4">
-                    <label for="content" class="form-label">Descrição:</label>
-                    <textarea class="form-control" rows="5" placeholder="Observações sobre o material..."></textarea>
+                    <label for="descricao" class="form-label">Descrição:</label>
+                    <textarea class="form-control" rows="5" placeholder="Observações sobre o material..." id="descricao" name="descricao"></textarea>
                 </div>
                 <div class="col-12">
-                    <button class="btn btn-primary">Cadastrar</button>
+                    <button class="btn btn-primary" type="submit">Cadastrar</button>
                 </div>
             </form>
         </div>

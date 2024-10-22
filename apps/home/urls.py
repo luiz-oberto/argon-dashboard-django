@@ -14,4 +14,7 @@ urlpatterns = [
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 
+    # Incluir material
+    # path('adicionar-material/', views.adicionar_material, name='adicionar_material'),
+
 ]
