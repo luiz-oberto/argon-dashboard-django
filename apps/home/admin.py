@@ -20,7 +20,6 @@ class MaterialAdmin(admin.ModelAdmin):
 
 @admin.register(models.ItemPatrimonio)
 class ItemPatrimonioAdmin(admin.ModelAdmin):
-    list_display = 'codigo',
-    'descricao',
-    'local',
+    list_display = 'codigo', 'descricao', 'local',
+    list_per_page = 20
 

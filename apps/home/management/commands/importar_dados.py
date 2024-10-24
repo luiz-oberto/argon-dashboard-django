@@ -20,7 +20,7 @@ class Command(BaseCommand):
                     # Se encontrar um código no início da linha
                     codigo = match.group(0)
                     # Extrai a descrição e o local do resto da linha
-                    restante = line[len(codigo):].strip().split(' - ')
+                    restante = line[len(codigo)+2:].strip().split(' | ')
                     descricao = restante[0] if len(restante) > 0 else 'Descrição não informada'
                     local = restante[1] if len(restante) > 1 else 'Local não informado'
 
