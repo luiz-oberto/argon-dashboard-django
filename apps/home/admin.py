@@ -17,3 +17,10 @@ class MaterialAdmin(admin.ModelAdmin):
     'categoria',
     'origem',
     'observacao',
+
+@admin.register(models.ItemPatrimonio)
+class ItemPatrimonioAdmin(admin.ModelAdmin):
+    list_display = 'codigo',
+    'descricao',
+    'local',
+

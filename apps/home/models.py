@@ -59,3 +59,12 @@ class Material(models.Model):
 
     def __str__(self):
         return self.descricao
+
+# novo model para testes
+class ItemPatrimonio(models.Model):
+    codigo = models.CharField(max_length=7)  # Código de 7 dígitos
+    descricao = models.TextField()           # Descrição do item
+    local = models.CharField(max_length=100) # Local ou sala, por exemplo
+
+    def __str__(self):
+        return self.codigo
