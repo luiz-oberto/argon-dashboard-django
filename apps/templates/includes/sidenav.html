@@ -26,7 +26,7 @@
           {% comment %} cosulta {% endcomment %}
           <li class="nav-item">
             <!-- SE consulta-itens OU consulta-detentores estiver no segmento => ative a cor da div -->
-            <a class="nav-link {% if 'consulta-itens' in segment or 'consulta-detentores' in segment %} active {% endif %}" href="/consulta-itens.html">
+            <a class="nav-link {% if 'consulta-itens' in segment or 'consulta-detentores' in segment %} active {% endif %}" href="{% url "consulta" %}">
               <i class="ni ni-zoom-split-in text-primary"></i>
               <span class="nav-link-text">Consultar</span>
             </a>

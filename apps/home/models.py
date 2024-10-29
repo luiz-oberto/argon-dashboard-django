@@ -9,14 +9,14 @@ from django.core.validators import RegexValidator
 
 # Create your models here.
 class Material(models.Model):
-    # Descrição ou nome do material
-    descricao = models.CharField(max_length=255)
-
     # Número patrimonial de até 7 dígitos
     numero_patrimonio = models.CharField(
         max_length=7,
         validators=[RegexValidator(regex='^\d{1,7}$', message='Apenas números com até 7 dígitos são permitidos.')]
     )
+
+    # Descrição ou nome do material
+    descricao = models.CharField(max_length=255)
 
     # Preço em reais (com até duas casas decimais)
     preco = models.DecimalField(max_digits=10, decimal_places=2)

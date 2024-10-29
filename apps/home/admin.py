@@ -8,8 +8,8 @@ from . import models
 
 @admin.register(models.Material)
 class MaterialAdmin(admin.ModelAdmin):
-    list_display = 'descricao',
-    'numero_patrimonio',
+    list_display = 'numero_patrimonio',
+    'descricao',
     'preco',
     'data_aquisicao',
     'data_inclusao',
