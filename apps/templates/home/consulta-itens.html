@@ -33,15 +33,27 @@
             <th scope="col">NR Patrimonial</th>
             <th scope="col">Descrição</th>
             <th scope="col">Local</th>
-            <th scope="col">Detentor</th>
+            <!-- <th scope="col">Detentor</th> -->
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <!-- Exibir itens do banco de dados -->
+          {% for item in itens %}
+            <tr>
+              <!-- codigo -->
+              <th scope="row">{{ item.codigo }}</th>
+              <!-- descrição -->
+               <td>{{ item.descricao }}</td>
+               <!-- local -->
+               <td>{{ item.local }}</td>
+            </tr>
+          {% endfor %}
+
+          <!-- <tr> -->
             <!-- tag th deixa em negrito -->
-            <th scope="row">NP12345678</th>
+            <!-- <th scope="row">NP12345678</th> -->
             <!-- tag td apenas texto normal -->
-            <td>COMPUTADOR</td>
+            <!-- <td>COMPUTADOR</td>
             <td>BLOCO H-T</td>
             <td>S1 ANTUNES</td>
           </tr>
@@ -51,6 +63,7 @@
             <td>BLOCO H-T</td>
             <td>S1 ANTUNES</td>
           </tr>
+           -->
         </tbody>
       </table>
     </div>

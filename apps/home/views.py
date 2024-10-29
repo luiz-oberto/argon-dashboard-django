@@ -9,7 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render, redirect
-from .models import Material
+from .models import Material, ItemPatrimonio
 
 # página principal
 @login_required(login_url="/login/")
@@ -55,7 +55,15 @@ def pages(request):
 @login_required(login_url="/login/")
 def consulta(request):
     # mostrar os detentores e seus itens
-    context = {'segment': 'consulta-itens'}
+
+    # mostrar itens
+    itens_patrimonio = ItemPatrimonio.objects.order_by('codigo')
+
+    context = {
+        'segment': 'consulta-itens',
+        'itens': itens_patrimonio
+    }
+    
     if request.method == 'GET':
         return render(request, 'home/consulta-itens.html', context)
 
