@@ -10,6 +10,8 @@ from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from .models import Material, ItemPatrimonio
+# paginator
+from django.core.paginator import Paginator
 
 # página principal
 @login_required(login_url="/login/")
@@ -51,6 +53,8 @@ def pages(request):
         return HttpResponse(html_template.render(context, request))
 
 
+################## consultar material ###########################
+
 # Página de consultas
 @login_required(login_url="/login/")
 def consulta(request):
@@ -59,13 +63,20 @@ def consulta(request):
     # mostrar itens
     itens_patrimonio = ItemPatrimonio.objects.order_by('codigo')
 
+    # paginator
+    paginator = Paginator(itens_patrimonio, 20)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
     context = {
         'segment': 'consulta-itens',
-        'itens': itens_patrimonio
+        'itens': itens_patrimonio,
+        'page_obj': page_obj
     }
     
     if request.method == 'GET':
         return render(request, 'home/consulta-itens.html', context)
+
 
 
 
