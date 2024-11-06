@@ -12,6 +12,8 @@ urlpatterns = [
     path("teste_url/", views.teste_url, name="teste"),
     #################################################
     path("consultar-itens/", views.consulta, name="consulta"),
+    path("search/", views.search, name="search"),
+    
 
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
