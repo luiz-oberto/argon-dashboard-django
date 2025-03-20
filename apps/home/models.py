@@ -2,69 +2,70 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
 from django.db import models
-from django.contrib.auth.models import User
-from django.core.validators import RegexValidator
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
-# Create your models here.
-class Material(models.Model):
-    # Número patrimonial de até 7 dígitos
-    numero_patrimonio = models.CharField(
-        max_length=7,
-        validators=[RegexValidator(regex='^\d{1,7}$', message='Apenas números com até 7 dígitos são permitidos.')]
-    )
+class DetentorManager(BaseUserManager):
+    def create_user(self, username, email, password=None, **extra_fields):
+        if not email:
+            raise ValueError('O email é obrigatório')
+        email = self.normalize_email(email)
+        user = self.model(username=username, email=email, **extra_fields)
+        user.set_password(password)  # <- Isso define corretamente a senha
+        user.save(using=self._db)
+        return user
 
-    # Descrição ou nome do material
-    descricao = models.CharField(max_length=255)
+    def create_superuser(self, username, email, password=None, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
 
-    # Preço em reais (com até duas casas decimais)
-    preco = models.DecimalField(max_digits=10, decimal_places=2)
+        if extra_fields.get('is_staff') is not True:
+            raise ValueError('Superuser precisa ter is_staff=True.')
+        if extra_fields.get('is_superuser') is not True:
+            raise ValueError('Superuser precisa ter is_superuser=True.')
 
-    # Data de aquisição
-    data_aquisicao = models.DateField()
+        return self.create_user(username, email, password, **extra_fields)
 
-    # Data de inclusão no sistema
-    data_inclusao = models.DateField(auto_now_add=True)
+class Detentor(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(max_length=150, unique=True)
+    email = models.EmailField(unique=True)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
-    # Status (campo select)
-    STATUS_CHOICES = [
-        ('novo', 'Novo'),
-        ('usado', 'Usado'),
-        ('danificado', 'Danificado'),
-    ]
-    status = models.CharField(max_length=10, choices=STATUS_CHOICES)
+    objects = DetentorManager()
 
-    # Estado do material (campo select)
-    ESTADO_CHOICES = [
-        ('bom', 'Bom'),
-        ('regular', 'Regular'),
-        ('ruim', 'Ruim'),
-    ]
-    estado = models.CharField(max_length=10, choices=ESTADO_CHOICES)
-
-    # Categoria do produto (campo select)
-    CATEGORIA_CHOICES = [
-        ('informatica', 'Informática'),
-        ('mobilia', 'Mobília'),
-        ('outros', 'Outros'),
-    ]
-    categoria = models.CharField(max_length=20, choices=CATEGORIA_CHOICES)
-
-    # Origem do Material
-    origem = models.TextField()
-
-    # Observação
-    observacao = models.TextField(blank=True, null=True)
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
-        return self.descricao
+        return self.username
 
-# novo model para testes
-class ItemPatrimonio(models.Model):
-    codigo = models.CharField(max_length=7)  # Código de 7 dígitos
-    descricao = models.TextField()           # Descrição do item
-    local = models.CharField(max_length=100) # Local ou sala, por exemplo
+
+
+# Modelo UORG (Unidade Organizacional)
+class UORG(models.Model):
+    codigo = models.CharField(max_length=6, unique=True)  # Código único de 6 dígitos
+    nome = models.CharField(max_length=255)
+    detentor = models.ForeignKey(Detentor, on_delete=models.CASCADE, related_name="uorgs")
 
     def __str__(self):
-        return self.codigo
+        return f"{self.codigo} - {self.nome}"
+
+# Modelo Sala (Locais pertencentes a uma UORG)
+class Sala(models.Model):
+    nome = models.CharField(max_length=50)
+    uorg = models.ForeignKey(UORG, on_delete=models.CASCADE, related_name="salas")
+
+    def __str__(self):
+        return f"{self.nome} - {self.uorg.codigo}"
+
+# Modelo Item (Itens patrimoniais vinculados a uma UORG e opcionalmente a uma Sala)
+class Item(models.Model):
+    nome = models.CharField(max_length=255)
+    descricao = models.TextField(blank=True, null=True)
+    numero_patrimonio = models.CharField(max_length=50, unique=True)
+    uorg = models.ForeignKey(UORG, on_delete=models.CASCADE, related_name="itens")
+    sala = models.ForeignKey(Sala, on_delete=models.SET_NULL, null=True, blank=True, related_name="itens")
+
+    def __str__(self):
+        return f"{self.numero_patrimonio} - {self.nome}"

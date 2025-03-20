@@ -9,7 +9,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Material, ItemPatrimonio
+
 # paginator
 from django.core.paginator import Paginator
 # Q
