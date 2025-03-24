@@ -80,7 +80,6 @@
             </a>
           </li>
 
-          <!-- ############# FORA DO PROJETO ##############-->
 
           <!-- <li class="nav-item">
             <a class="nav-link {% if 'icons' in segment %} active {% endif %}" href="/icons.html">
@@ -106,12 +105,16 @@
               <span class="nav-link-text">Login (template)</span>
             </a>
           </li>
+
+          <!-- # PÁGINA DE REGISTRO QUE VAI MUDAR ################# -->
           <li class="nav-item">
-            <a class="nav-link" href="/register.html">
+            <a class="nav-link" href="{% url 'register' %}"> <!-- AJUSTAR URL QUANDO A PÁGINA TIVER PRONTA-->
               <i class="ni ni-circle-08 text-pink"></i>
-              <span class="nav-link-text">Register (template)</span>
+              <span class="nav-link-text">Registrar Detentor</span>
             </a>
           </li>
+          <!-- ##################################################### -->
+
 
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">
