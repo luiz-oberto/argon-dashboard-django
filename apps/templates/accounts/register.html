@@ -1,116 +1,136 @@
-{% extends 'layouts/base-fullscreen.html' %}
+{% extends "layouts/base.html" %}
 
-{% block title %} Register {% endblock title %}
+{% block title %} consulta-inclusao {% endblock title %}
 
+{% load static %}
 <!-- Specific CSS goes HERE -->
-{% block stylesheets %}{% endblock stylesheets %}
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static "assets/css/style-forms.css" %}">
+{% endblock stylesheets %}
+
 
 {% block content %}
 
-    <!-- Page content -->
-    <div class="container mt--8 pb-5">
-      <!-- Table -->
-      <div class="row justify-content-center">
-        <div class="col-lg-6 col-md-8">
-        
-          <div class="card bg-secondary shadow border-0">
-            <div class="card-header bg-transparent pb-5">
-              <div class="text-muted text-center mt-2 mb-4">
-                Sign UP
-              </div>
-            </div>
-            <div class="card-body px-lg-5 py-lg-5">
-              <div class="text-center text-muted mb-4">
+<div class="header bg-primary pb-6" id="header"> </div>
 
-                {% if msg %}
-                  <small>{{ msg | safe }}</small>
-                {% else %}
-                  Add your credentials
-                {% endif %}  
-              
-              </div>
 
-              {% if not success %}
+<!-- Page content -->
+<div class="container pb-5" id="form-user-register">
+  <!-- Table -->
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
 
-                <form method="POST">
+      <div class="card bg-secondary shadow border-0">
 
-                  {% csrf_token %}
-            
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                      </div>
-                      {{ form.username }} <!-- A tag input surge automaticamente deste objeto -->
-                    </div>
-                  </div>
-                  <span class="text-error">{{ form.username.errors }}</span>
+        <div class="card-body px-lg-5 py-lg-5">
+          <div class="text-center text-muted mb-4">
 
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative mb-3">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                      </div>
-                      {{ form.email }}
-                    </div>
-                  </div>
-                  <span class="text-error">{{ form.email.errors }}</span>
+            {% if msg %}
+            <small>{{ msg | safe }}</small>
+            {% else %}
+            Registrar novo Detentor
+            {% endif %}
 
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                      </div>
-                      {{ form.password1 }}
-                    </div>
-                  </div>
-                  <span class="text-error">{{ form.password1.errors }}</span>
-
-                  <div class="form-group">
-                    <div class="input-group input-group-alternative">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                      </div>
-                      {{ form.password2 }}
-                    </div>
-                  </div>
-                  <span class="text-error">{{ form.password2.errors }}</span>
-
-                  <div class="row my-4">
-                    <div class="col-12">
-                      <div class="custom-control custom-control-alternative custom-checkbox">
-                        <input class="custom-control-input" id="customCheckRegister" type="checkbox">
-                        <label class="custom-control-label" for="customCheckRegister">
-                          <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="text-center">
-                    <button type="submit" class="btn btn-primary mt-4">Create account</button>
-                  </div>
-                </form>
-
-              {% endif %}  
-  
-            </div>
           </div>
 
-        </div>
-      </div>
+          {% if not success %}
 
-      <div class="row mt-3">
-        <div class="col-3"></div>
-        <div class="col-3">
-          <a href="{% url 'login' %}" class="text-light"><small>Login</small></a>
-        </div>
-        <div class="col-3 text-right">
-          <a href="https://appseed.us/support" class="text-light"><small>Get Support</small></a>
+          <form method="POST">
+
+            {% csrf_token %}
+            <!-- INPUT USERNAME -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                </div>
+                {{ form.username }} <!-- A tag input surge automaticamente deste objeto -->
+              </div>
+            </div>
+            <span class="text-error">{{ form.username.errors }}</span>
+            
+            <!-- INPUT NOME COMPLETO -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                </div>
+                {{ form.nome }} <!-- A tag input surge automaticamente deste objeto -->
+              </div>
+            </div>
+            <span class="text-error">{{ form.nome.errors }}</span>
+
+            <!-- INPUT POSTO OU GRADUAÇÃO -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                </div>
+                {{ form.graduacao }} <!-- A tag input surge automaticamente deste objeto -->
+              </div>
+            </div>
+            <span class="text-error">{{ form.graduacao.errors }}</span>
+
+            <!-- INPUT EMAIL -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                {{ form.email }}
+              </div>
+            </div>
+            <span class="text-error">{{ form.email.errors }}</span>
+
+            <!-- INPUT PASSWORD1 -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                {{ form.password1 }}
+              </div>
+            </div>
+            <span class="text-error">{{ form.password1.errors }}</span>
+
+            <!-- INPUT PASSWORD2 -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                {{ form.password2 }}
+              </div>
+            </div>
+            <span class="text-error">{{ form.password2.errors }}</span>
+
+            <!-- <div class="row my-4">
+              <div class="col-12">
+                <div class="custom-control custom-control-alternative custom-checkbox">
+                  <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                  <label class="custom-control-label" for="customCheckRegister">
+                    <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                  </label>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mt-4">Criar Detentor</button>
+            </div>
+          </form>
+
+          {% endif %}
+
         </div>
       </div>
 
     </div>
   </div>
+
+
+</div>
+
 
 {% endblock content %}
 

@@ -25,7 +25,7 @@ class LoginForm(forms.Form):
             }
         ))
 
-
+# Obs: o nome de cada variável precisa ser igual ao que está em models!!!
 class SignUpForm(UserCreationForm):
     username = forms.CharField(
         widget=forms.TextInput(
@@ -38,6 +38,20 @@ class SignUpForm(UserCreationForm):
         widget=forms.EmailInput(
             attrs={
                 "placeholder": "Email",
+                "class": "form-control"
+            }
+        ))
+    nome = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Nome completo",
+                "class": "form-control"
+            }
+        ))
+    graduacao = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Posto ou Graduação",
                 "class": "form-control"
             }
         ))
@@ -58,4 +72,4 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = Detentor
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('username', 'email', 'nome', 'graduacao', 'password1', 'password2')

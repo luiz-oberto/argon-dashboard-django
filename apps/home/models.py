@@ -29,8 +29,8 @@ class DetentorManager(BaseUserManager):
 class Detentor(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=150, unique=True)
     email = models.EmailField(unique=True)
-    nome = models.CharField(max_length=255, null=True, blank=True)
-    graduacao = models.CharField(max_length=100, null=True, blank=True)
+    nome = models.CharField(max_length=255, null=False, blank=False, default='new user')
+    graduacao = models.CharField(max_length=100, null=False, blank=False, default='new user')
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
