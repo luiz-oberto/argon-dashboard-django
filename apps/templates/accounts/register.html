@@ -104,16 +104,17 @@
             </div>
             <span class="text-error">{{ form.password2.errors }}</span>
 
-            <!-- <div class="row my-4">
+            <div class="row my-4">
               <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
-                  <input class="custom-control-input" id="customCheckRegister" type="checkbox">
+                  <!-- <input class="custom-control-input" id="customCheckRegister" type="checkbox"> -->
+                  {{ form.is_staff }}
                   <label class="custom-control-label" for="customCheckRegister">
-                    <span class="text-muted">I agree with the <a href="#!">Privacy Policy</a></span>
+                    <span class="text-muted">Administrador</span>
                   </label>
                 </div>
               </div>
-            </div> -->
+            </div>
 
             <div class="text-center">
               <button type="submit" class="btn btn-primary mt-4">Criar Detentor</button>

@@ -69,7 +69,16 @@ class SignUpForm(UserCreationForm):
                 "class": "form-control"
             }
         ))
+    is_staff = forms.BooleanField(required=False,
+        widget=forms.CheckboxInput(
+            attrs={
+                "placeholder": "marque se admin",
+                "class": "custom-control-input",
+                "id": "customCheckRegister",
+            }
+            )
+    )
 
     class Meta:
         model = Detentor
-        fields = ('username', 'email', 'nome', 'graduacao', 'password1', 'password2')
+        fields = ('username', 'email', 'nome', 'graduacao', 'password1', 'password2', 'is_staff')

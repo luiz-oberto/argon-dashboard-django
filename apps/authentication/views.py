@@ -6,6 +6,7 @@ Copyright (c) 2019 - present AppSeed.us
 # Create your views here.
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import user_passes_test
 from .forms import LoginForm, SignUpForm
 
 
@@ -31,6 +32,10 @@ def login_view(request):
     return render(request, "accounts/login.html", {"form": form, "msg": msg})
 
 
+def is_admin(user):
+    return user.is_staff
+
+@user_passes_test(is_admin, login_url='/')
 def register_user(request):
     msg = None
     success = False
