@@ -15,6 +15,9 @@ from django.core.paginator import Paginator
 # Q
 from django.db.models import Q
 
+# Importando os models
+from .models import Detentor
+
 # página principal
 @login_required(login_url="/login/")
 def index(request):
@@ -60,26 +63,25 @@ def pages(request):
 # Página de consultas
 @login_required(login_url="/login/")
 def consulta(request):
-    # mostrar os detentores e seus itens
+    # mostrar Detentores cadastrados
+    detentores = Detentor.objects.order_by('nome').prefetch_related('uorgs__salas')
 
-    # mostrar itens
-    itens_patrimonio = ItemPatrimonio.objects.order_by('descricao')
 
     # paginator
-    paginator = Paginator(itens_patrimonio, 20)
+    paginator = Paginator(detentores, 20)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
     context = {
         'segment': 'consulta-itens',
-        'itens': itens_patrimonio,
+        'detentores': detentores,
         'page_obj': page_obj
     }
     
     if request.method == 'GET':
         return render(
             request, 
-            'home/consulta-itens.html', 
+            'home/consulta-detentores.html', 
             context)
 
 

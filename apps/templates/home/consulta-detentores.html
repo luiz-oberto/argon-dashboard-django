@@ -25,6 +25,60 @@
       </button>
     </form>
 
+
+    {% if page_obj %}
+    <div class="container">
+      <table class="table table-striped" id='consultar_itens'>
+        <thead>
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Posto/Graduação</th>
+            <th scope="col">UORG</th>
+            <th scope="col">Salas</th>
+            <!-- <th scope="col">Detentor</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Exibir itens do banco de dados -->
+          {% for detentor in page_obj %}
+              <tr>
+                <!-- Detentor -->
+                <th scope="row">{{ detentor.nome }}</th>
+                  <!-- Posto/grad -->
+                  <td>{{ detentor.graduacao }}</td>
+      
+                  <!-- UORG e Salas -->
+                  {% with detentor.uorgs.all as uorgs %}
+                      {% if uorgs %}
+                          <td>
+                              {% for uorg in uorgs %}
+                                  {{ uorg.codigo }}<br>
+                              {% endfor %}
+                          </td>
+                          <td>
+                              {% for uorg in uorgs %}
+                                  {% for sala in uorg.salas.all %}
+                                      {{ sala.nome }}<br>
+                                  {% empty %}
+                                      Não possui Salas cadastradas<br>
+                                  {% endfor %}
+                              {% endfor %}
+                          </td>
+                      {% else %}
+                          <td>Não possui UORGs cadastradas</td>
+                          <td>—</td>
+                      {% endif %}
+                  {% endwith %}
+              </tr>
+          {% endfor %}
+        </tbody>
+        </table>
+      </div>
+      {% else %}
+        <div>
+          <h1>Nenhum Material encontrado</h1>
+    {% endif %}
+{% comment %} 
     <div class="container">
         <table class="table table-striped" id='consultar_detentores'>
           <thead>
@@ -84,7 +138,7 @@
               </tr>
           </tbody>
         </table>
-      </div>
+      </div> {% endcomment %}
     
 
 {% endblock content %}

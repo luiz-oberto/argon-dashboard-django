@@ -12,7 +12,7 @@ class DetentorAdmin(admin.ModelAdmin):
 
 @admin.register(models.UORG)
 class UORGAdmin(admin.ModelAdmin):
-    list_display = 'codigo','detentor',
+    list_display = 'codigo','nome','detentor',
 
 @admin.register(models.Sala)
 class SalaAdmin(admin.ModelAdmin):
@@ -21,22 +21,4 @@ class SalaAdmin(admin.ModelAdmin):
 @admin.register(models.Item)
 class ItemAdmin(admin.ModelAdmin):
     list_display = 'numero_patrimonio','nome',
-
-
-# @admin.register(models.Material)
-# class MaterialAdmin(admin.ModelAdmin):
-#     list_display = 'numero_patrimonio',
-#     'descricao',
-#     'preco',
-#     'data_aquisicao',
-#     'data_inclusao',
-#     'estado',
-#     'categoria',
-#     'origem',
-#     'observacao',
-
-# @admin.register(models.ItemPatrimonio)
-# class ItemPatrimonioAdmin(admin.ModelAdmin):
-#     list_display = 'codigo', 'descricao', 'local',
-#     list_per_page = 20
 
