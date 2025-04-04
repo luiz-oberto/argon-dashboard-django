@@ -8,10 +8,9 @@ from apps.home import views
 
 urlpatterns = [
     path('', views.index, name='home'),
-    # caminho de teste
-    # path("teste_url/", views.teste_url, name="teste"),
     # página de consulta
     path("consultar-detentores/", views.consulta, name="consulta"),
+    path("form-uorg/", views.register_uorg, name="registrar-uorg"),
     path("search/", views.search, name="search"),
     
 

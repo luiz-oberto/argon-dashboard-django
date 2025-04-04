@@ -109,9 +109,9 @@
           <!-- LINK - PÁGINA DE REGISTRO DETENTOR -->
           {% if request.user.is_staff%}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'register' %}">
-                <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Registrar Detentor</span>
+              <a class="nav-link {% if 'registrar' in segment %} active {% endif %}" href="{% url 'register' %}">
+                <i class="ni ni-circle-08 text-primary"></i>
+                <span class="nav-link-text">Registrar</span>
               </a>
             </li>
           {% endif %}

@@ -4,7 +4,7 @@ Copyright (c) 2019 - present AppSeed.us
 """
 
 from django import template
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.urls import reverse
@@ -25,12 +25,6 @@ def index(request):
     html_template = loader.get_template('home/index.html')
     return HttpResponse(html_template.render(context, request))
 
-
-# view de teste
-# @login_required(login_url="/login/")
-# def teste_url(request):
-#     response = 'acessando URL de teste'
-#     return HttpResponse(response)
 
 @login_required(login_url="/login/")
 def pages(request):
@@ -82,6 +76,40 @@ def consulta(request):
             request, 
             'home/consulta-detentores.html', 
             context)
+
+
+# Administracao de Detentores, UORGs e salas
+
+def is_admin(user):
+    return user.is_staff
+
+@user_passes_test(is_admin, login_url='/')
+def register_uorg(request):
+    msg = None
+    success = False
+    form = None
+
+    # if request.method == "POST":
+    #     form = SignUpForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         # acrescentar os campos de nome e graduação!!
+    #         username = form.cleaned_data.get("username")
+    #         raw_password = form.cleaned_data.get("password1")
+    #         user = authenticate(username=username, password=raw_password)
+
+    #         msg = 'Detentor criado - Por favor faça o <a href="/login">login</a>.'
+    #         success = True
+
+    #         # return redirect("/login/")
+
+    #     else:
+    #         msg = 'Form is not valid'
+    # else:
+    #     form = SignUpForm()
+
+    return render(request, "home/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
+
 
 
 # View da barra de pesquisa
