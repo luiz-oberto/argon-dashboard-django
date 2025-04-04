@@ -27,10 +27,10 @@ def index(request):
 
 
 # view de teste
-@login_required(login_url="/login/")
-def teste_url(request):
-    response = 'acessando URL de teste'
-    return HttpResponse(response)
+# @login_required(login_url="/login/")
+# def teste_url(request):
+#     response = 'acessando URL de teste'
+#     return HttpResponse(response)
 
 @login_required(login_url="/login/")
 def pages(request):
@@ -65,7 +65,6 @@ def pages(request):
 def consulta(request):
     # mostrar Detentores cadastrados
     detentores = Detentor.objects.order_by('nome').prefetch_related('uorgs__salas')
-
 
     # paginator
     paginator = Paginator(detentores, 20)
