@@ -6,9 +6,9 @@ Copyright (c) 2019 - present AppSeed.us
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
-from apps.home.models import UORG
+from apps.home.models import UORG, Detentor
 
-class ResgistrarUorg(forms.Form):
+class UORGForm(forms.Form):
     codigo = forms.CharField(
         widget=forms.TextInput(
             attrs={
@@ -17,10 +17,25 @@ class ResgistrarUorg(forms.Form):
             }
         )
     )
+    nome = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Nome da UORG",
+                "class": "form-control"
+            }
+        )
+    )
+    detentor = forms.ModelChoiceField(
+        queryset=Detentor.objects.all(),
+        required=False,
+        label="Selecionar Detentor",
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
+
 
     class Meta:
         model = UORG
-        fields = ('codigo')
+        fields = ('codigo', 'nome', 'detentor')
 
 
 

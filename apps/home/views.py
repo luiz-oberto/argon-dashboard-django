@@ -19,7 +19,7 @@ from django.db.models import Q
 from .models import Detentor
 
 # impotando forms
-from .forms import ResgistrarUorg
+from .forms import UORGForm
 
 # página principal
 @login_required(login_url="/login/")
@@ -93,7 +93,7 @@ def register_uorg(request):
     form = None
 
     if request.method == "POST":
-        form = ResgistrarUorg(request.POST)
+        form = UORGForm(request.POST)
         if form.is_valid():
             form.save()
             # acrescentar os campos de nome e graduação!!
@@ -109,7 +109,7 @@ def register_uorg(request):
         else:
             msg = 'Form is not valid'
     else:
-        form = ResgistrarUorg()
+        form = UORGForm()
 
     return render(request, "home/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 

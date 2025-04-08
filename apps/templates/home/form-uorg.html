@@ -41,7 +41,7 @@
           <form method="POST">
 
             {% csrf_token %}
-            <!-- INPUT USERNAME -->
+            <!-- INPUT CÓDIGO -->
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
@@ -52,7 +52,7 @@
             </div>
             <span class="text-error">{{ form.codigo.errors }}</span>
             
-            <!-- INPUT NOME COMPLETO -->
+            <!-- INPUT NOME DA UORG -->
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
@@ -63,16 +63,16 @@
             </div>
             <span class="text-error">{{ form.nome.errors }}</span>
 
-            <!-- INPUT POSTO OU GRADUAÇÃO -->
+            <!-- SELECIONAR DETENTOR -->
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                 </div>
-                {{ form.graduacao }} <!-- A tag input surge automaticamente deste objeto -->
+                {{ form.detentor }} <!-- A tag input surge automaticamente deste objeto -->
               </div>
             </div>
-            <span class="text-error">{{ form.graduacao.errors }}</span>
+            <span class="text-error">{{ form.detentor.errors }}</span>
 
             <div class="text-center">
               <button type="submit" class="btn btn-primary mt-4">Criar Detentor</button>
