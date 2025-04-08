@@ -18,6 +18,9 @@ from django.db.models import Q
 # Importando os models
 from .models import Detentor
 
+# impotando forms
+from .forms import ResgistrarUorg
+
 # página principal
 @login_required(login_url="/login/")
 def index(request):
@@ -89,24 +92,24 @@ def register_uorg(request):
     success = False
     form = None
 
-    # if request.method == "POST":
-    #     form = SignUpForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-    #         # acrescentar os campos de nome e graduação!!
-    #         username = form.cleaned_data.get("username")
-    #         raw_password = form.cleaned_data.get("password1")
-    #         user = authenticate(username=username, password=raw_password)
+    if request.method == "POST":
+        form = ResgistrarUorg(request.POST)
+        if form.is_valid():
+            form.save()
+            # acrescentar os campos de nome e graduação!!
+            # username = form.cleaned_data.get("username")
+            # raw_password = form.cleaned_data.get("password1")
+            # user = authenticate(username=username, password=raw_password)
 
-    #         msg = 'Detentor criado - Por favor faça o <a href="/login">login</a>.'
-    #         success = True
+            msg = 'Detentor criado - Por favor faça o <a href="/login">login</a>.'
+            success = True
 
-    #         # return redirect("/login/")
+            # return redirect("/login/")
 
-    #     else:
-    #         msg = 'Form is not valid'
-    # else:
-    #     form = SignUpForm()
+        else:
+            msg = 'Form is not valid'
+    else:
+        form = ResgistrarUorg()
 
     return render(request, "home/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 

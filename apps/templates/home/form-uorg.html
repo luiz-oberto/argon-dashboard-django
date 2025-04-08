@@ -47,10 +47,10 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                 </div>
-                {{ form.username }} <!-- A tag input surge automaticamente deste objeto -->
+                {{ form.codigo }} <!-- A tag input surge automaticamente deste objeto -->
               </div>
             </div>
-            <span class="text-error">{{ form.username.errors }}</span>
+            <span class="text-error">{{ form.codigo.errors }}</span>
             
             <!-- INPUT NOME COMPLETO -->
             <div class="form-group">
@@ -73,51 +73,6 @@
               </div>
             </div>
             <span class="text-error">{{ form.graduacao.errors }}</span>
-
-            <!-- INPUT EMAIL -->
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                </div>
-                {{ form.email }}
-              </div>
-            </div>
-            <span class="text-error">{{ form.email.errors }}</span>
-
-            <!-- INPUT PASSWORD1 -->
-            <div class="form-group">
-              <div class="input-group input-group-alternative">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                </div>
-                {{ form.password1 }}
-              </div>
-            </div>
-            <span class="text-error">{{ form.password1.errors }}</span>
-
-            <!-- INPUT PASSWORD2 -->
-            <div class="form-group">
-              <div class="input-group input-group-alternative">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                </div>
-                {{ form.password2 }}
-              </div>
-            </div>
-            <span class="text-error">{{ form.password2.errors }}</span>
-
-            <div class="row my-4">
-              <div class="col-12">
-                <div class="custom-control custom-control-alternative custom-checkbox">
-                  <!-- <input class="custom-control-input" id="customCheckRegister" type="checkbox"> -->
-                  {{ form.is_staff }}
-                  <label class="custom-control-label" for="customCheckRegister">
-                    <span class="text-muted">Administrador</span>
-                  </label>
-                </div>
-              </div>
-            </div>
 
             <div class="text-center">
               <button type="submit" class="btn btn-primary mt-4">Criar Detentor</button>
