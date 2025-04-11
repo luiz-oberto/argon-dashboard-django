@@ -16,7 +16,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 
 # Importando os models
-from .models import Detentor
+from .models import Detentor,UORG
 
 # impotando forms
 from .forms import UORGForm
@@ -96,12 +96,8 @@ def register_uorg(request):
         form = UORGForm(request.POST)
         if form.is_valid():
             form.save()
-            # acrescentar os campos de nome e graduação!!
-            # username = form.cleaned_data.get("username")
-            # raw_password = form.cleaned_data.get("password1")
-            # user = authenticate(username=username, password=raw_password)
 
-            msg = 'Detentor criado - Por favor faça o <a href="/login">login</a>.'
+            msg = 'UORG criada'
             success = True
 
             # return redirect("/login/")
