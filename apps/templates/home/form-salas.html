@@ -12,8 +12,8 @@
 {% block content %}
 <div class="header bg-primary pb-6">
   <button type="button" class="btn btn-secondary btn-sm"><a class="nav-link" href="{% url "register" %}">Detentor</a></button>
-  <button type="button" class="btn btn-default btn-sm"><a class="nav-link" href="{% url "registrar-uorg" %}">UORG</a></button>
-  <button type="button" class="btn btn-secondary btn-sm"><a class="nav-link" href="{% url "registrar-salas" %}">Salas</a></button>
+  <button type="button" class="btn btn-secondary btn-sm"><a class="nav-link" href="{% url "registrar-uorg" %}">UORG</a></button>
+  <button type="button" class="btn btn-default btn-sm"><a class="nav-link" href="{% url "registrar-salas" %}">Salas</a></button>
 </div>
 
 
@@ -41,18 +41,7 @@
           <form method="POST">
 
             {% csrf_token %}
-            <!-- INPUT CÓDIGO -->
-            <div class="form-group">
-              <div class="input-group input-group-alternative mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
-                </div>
-                {{ form.codigo }} <!-- A tag input surge automaticamente deste objeto -->
-              </div>
-            </div>
-            <span class="text-error">{{ form.codigo.errors }}</span>
-            
-            <!-- INPUT NOME DA UORG -->
+            <!-- DESCRIÇÃO DA SALA -->
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
@@ -62,20 +51,20 @@
               </div>
             </div>
             <span class="text-error">{{ form.nome.errors }}</span>
-
-            <!-- SELECIONAR DETENTOR -->
+            
+            <!-- SELEÇÃO DA UORG -->
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
                 </div>
-                {{ form.detentor }} <!-- A tag input surge automaticamente deste objeto -->
+                {{ form.uorg }} <!-- A tag input surge automaticamente deste objeto -->
               </div>
             </div>
-            <span class="text-error">{{ form.detentor.errors }}</span>
+            <span class="text-error">{{ form.uorg.errors }}</span>
 
             <div class="text-center">
-              <button type="submit" class="btn btn-primary mt-4">Criar UORG</button>
+              <button type="submit" class="btn btn-primary mt-4">Criar Sala</button>
             </div>
           </form>
 

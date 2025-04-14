@@ -11,6 +11,7 @@ urlpatterns = [
     # página de consulta
     path("consultar-detentores/", views.consulta, name="consulta"),
     path("form-uorg/", views.register_uorg, name="registrar-uorg"),
+    path("form-salas/", views.register_sala, name="registrar-salas"),
     path("search/", views.search, name="search"),
     
 

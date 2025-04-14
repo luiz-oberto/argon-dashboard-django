@@ -19,7 +19,7 @@ from django.db.models import Q
 from .models import Detentor,UORG
 
 # impotando forms
-from .forms import UORGForm
+from .forms import UORGForm, SalaForm
 
 # página principal
 @login_required(login_url="/login/")
@@ -108,6 +108,30 @@ def register_uorg(request):
         form = UORGForm()
 
     return render(request, "home/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
+
+@user_passes_test(is_admin, login_url='/')
+def register_sala(request):
+    msg = None
+    success = False
+    form = None
+
+    if request.method == "POST":
+        form = SalaForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            msg = 'Sala criada'
+            success = True
+
+            # return redirect("/login/")
+
+        else:
+            msg = 'Form is not valid'
+    else:
+        form = SalaForm()
+
+    return render(request, "home/form-salas.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
+
 
 
 
