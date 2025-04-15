@@ -5,7 +5,7 @@ Copyright (c) 2019 - present AppSeed.us
 
 from django import template
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.template import loader
 from django.urls import reverse
 from django.shortcuts import render, redirect, get_object_or_404
@@ -16,10 +16,27 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 
 # Importando os models
-from .models import Detentor,UORG
+from .models import Detentor,UORG, Sala
 
 # impotando forms
-from .forms import UORGForm, SalaForm
+from .forms import UORGForm, SalaForm, ItemForm
+
+
+# Funções do sistema
+def is_admin(user):
+    return user.is_staff
+
+def carregar_uorgs(request):
+    detentor_id = request.GET.get('detentor_id')
+    uorgs = UORG.objects.filter(detentor_id=detentor_id).values('id', 'codigo', 'nome')
+    return JsonResponse(list(uorgs), safe=False)
+
+def carregar_salas(request):
+    uorg_id = request.GET.get('uorg_id')
+    salas = Sala.objects.filter(uorg_id=uorg_id).values('id', 'nome')
+    return JsonResponse(list(salas), safe=False)
+
+
 
 # página principal
 @login_required(login_url="/login/")
@@ -83,8 +100,6 @@ def consulta(request):
 
 # Administracao de Detentores, UORGs e salas
 
-def is_admin(user):
-    return user.is_staff
 
 @user_passes_test(is_admin, login_url='/')
 def register_uorg(request):
@@ -100,7 +115,6 @@ def register_uorg(request):
             msg = 'UORG criada'
             success = True
 
-            # return redirect("/login/")
 
         else:
             msg = 'Form is not valid'
@@ -124,7 +138,6 @@ def register_sala(request):
             msg = 'Sala criada'
             success = True
 
-            # return redirect("/login/")
 
         else:
             msg = 'Form is not valid'
@@ -141,23 +154,21 @@ def register_iten(request):
     success = False
     form = None
 
-    # if request.method == "POST":
-    #     form = SalaForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
+    if request.method == "POST":
+        form = ItemForm(request.POST)
+        if form.is_valid():
+            form.save()
 
-    #         msg = 'Sala criada'
-    #         success = True
+            msg = 'Item criado'
+            success = True
 
-    #         # return redirect("/login/")
 
-    #     else:
-    #         msg = 'Form is not valid'
-    # else:
-    #     form = SalaForm()
+        else:
+            msg = 'Form is not valid'
+    else:
+        form = ItemForm()
 
-    return render(request, "home/form-incluir.html", {'segment': 'form-incluir'})
-''' "form": form, "msg": msg, "success": success, '''
+    return render(request, "home/form-incluir.html", {"form": form, "msg": msg, "success": success, 'segment': 'form-incluir'})
 
 
 # View da barra de pesquisa
