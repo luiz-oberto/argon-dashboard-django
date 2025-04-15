@@ -33,12 +33,15 @@
           </li>
 
           {% comment %} Inclusão de material {% endcomment %}
-          <li class="nav-item">
-            <a class="nav-link {% if 'form-incluir' in segment or 'consulta-inclusao' in segment %} active {% endif %}" href="/consulta-inclusao.html">
-              <i class="ni ni-fat-add"></i>
-              <span class="nav-link-text">Incluir material</span>
-            </a>
-          </li>
+          {% if request.user.is_staff%}
+            <li class="nav-item">
+              <a class="nav-link {% if 'form-incluir' in segment or 'consulta-inclusao' in segment %} active {% endif %}" href="{% url "registrar-itens" %}">
+                <i class="ni ni-fat-add"></i>
+                <span class="nav-link-text">Incluir material</span>
+              </a>
+            </li>
+          {% endif %}
+
 
           {% comment %} Tranferência {% endcomment %}
           <li class="nav-item">

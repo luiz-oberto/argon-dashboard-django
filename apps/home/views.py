@@ -109,6 +109,7 @@ def register_uorg(request):
 
     return render(request, "home/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 
+
 @user_passes_test(is_admin, login_url='/')
 def register_sala(request):
     msg = None
@@ -133,6 +134,30 @@ def register_sala(request):
     return render(request, "home/form-salas.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 
 
+# Página Formulário de inclusão de material
+@user_passes_test(is_admin, login_url='/')
+def register_iten(request):
+    msg = None
+    success = False
+    form = None
+
+    # if request.method == "POST":
+    #     form = SalaForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+
+    #         msg = 'Sala criada'
+    #         success = True
+
+    #         # return redirect("/login/")
+
+    #     else:
+    #         msg = 'Form is not valid'
+    # else:
+    #     form = SalaForm()
+
+    return render(request, "home/form-incluir.html", {'segment': 'form-incluir'})
+''' "form": form, "msg": msg, "success": success, '''
 
 
 # View da barra de pesquisa
