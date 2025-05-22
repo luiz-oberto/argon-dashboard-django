@@ -36,12 +36,21 @@
           {% if request.user.is_staff%}
             <li class="nav-item">
               <a class="nav-link {% if 'form-incluir' in segment or 'consulta-inclusao' in segment %} active {% endif %}" href="{% url "registrar-itens" %}">
-                <i class="ni ni-fat-add"></i>
+                <i class="ni ni-fat-add text-primary"></i>
                 <span class="nav-link-text">Incluir material</span>
               </a>
             </li>
+            
+            <!-- LINK - PÁGINA DE REGISTRO DETENTOR -->
+            {% if request.user.is_staff%}
+              <li class="nav-item">
+                <a class="nav-link {% if 'registrar' in segment %} active {% endif %}" href="{% url 'register' %}">
+                  <i class="ni ni-circle-08 text-primary"></i>
+                  <span class="nav-link-text">Registrar</span>
+                </a>
+              </li>
+            {% endif %}
           {% endif %}
-
 
           {% comment %} Tranferência {% endcomment %}
           <li class="nav-item">
@@ -109,15 +118,6 @@
             </a>
           </li>
 
-          <!-- LINK - PÁGINA DE REGISTRO DETENTOR -->
-          {% if request.user.is_staff%}
-            <li class="nav-item">
-              <a class="nav-link {% if 'registrar' in segment %} active {% endif %}" href="{% url 'register' %}">
-                <i class="ni ni-circle-08 text-primary"></i>
-                <span class="nav-link-text">Registrar</span>
-              </a>
-            </li>
-          {% endif %}
 
 
           <li class="nav-item">

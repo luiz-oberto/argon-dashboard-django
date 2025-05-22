@@ -8,8 +8,14 @@ from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
 from apps.home.models import Detentor, UORG, Sala, Item
 
-
+# Formulário para inclusão de detentores, UORGs e salas
 class UORGForm(forms.ModelForm):
+    detentor = forms.ModelChoiceField(
+        queryset=Detentor.objects.all(),
+        required=True,
+        empty_label="Detentor",
+        widget=forms.Select(attrs={"class": "form-control"})
+    )
     class Meta:
         model = UORG
         fields = ['codigo', 'nome', 'detentor']
@@ -22,12 +28,16 @@ class UORGForm(forms.ModelForm):
                 "placeholder": "Nome da UORG",
                 "class": "form-control"
             }),
-            'detentor': forms.Select(attrs={
-                "class": "form-control"
-            }),
         }
 
 class SalaForm(forms.ModelForm):
+    uorg = forms.ModelChoiceField(
+        queryset=UORG.objects.all(),
+        required=True,
+        empty_label="Selecine a UORG",
+        widget=forms.Select(attrs={"class": "form-control"})
+    )
+
     class Meta:
         model = Sala
         fields = ['nome', 'uorg']
@@ -36,23 +46,34 @@ class SalaForm(forms.ModelForm):
                 "placeholder": "Nome da sala",
                 "class": "form-control"
             }),
-            'uorg': forms.Select(attrs={
-                "class": "form-control"
-            }),
         }
 
+# formulário para inclusão de material
 class ItemForm(forms.ModelForm):
     detentor = forms.ModelChoiceField(
         queryset=Detentor.objects.all(),
         required=False,
+        empty_label= "Detentor",
         widget=forms.Select(attrs={"class": "form-control"})
+    )
+
+    uorg = forms.ModelChoiceField(
+        queryset=UORG.objects.all(),
+        required=False,
+        empty_label='UORG',
+        widget=forms.Select(attrs={"class": "form-control"})
+    )
+
+    sala = forms.ModelChoiceField(
+        queryset=Sala.objects.all(),
+        required=False,
+        empty_label="Sala",
+        widget=forms.Select(attrs={"class":"form-control"})
     )
     class Meta:
         model = Item
         fields = ['detentor', 'uorg', 'sala', 'nome', 'descricao', 'numero_patrimonio']
         widgets = {
-            'uorg': forms.Select(attrs={"class": "form-control"}),
-            'sala': forms.Select(attrs={"class": "form-control"}),
             'nome': forms.TextInput(attrs={
                 "placeholder": "Nome do item",
                 "class": "form-control"
