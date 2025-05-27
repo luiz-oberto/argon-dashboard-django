@@ -94,7 +94,7 @@ def consulta(request):
     if request.method == 'GET':
         return render(
             request, 
-            'home/consulta-detentores.html', 
+            'home/consulta/consulta-detentores.html', 
             context)
 
 
@@ -121,7 +121,7 @@ def register_uorg(request):
     else:
         form = UORGForm()
 
-    return render(request, "home/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
+    return render(request, "home/formularios/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 
 
 @user_passes_test(is_admin, login_url='/')
@@ -144,7 +144,7 @@ def register_sala(request):
     else:
         form = SalaForm()
 
-    return render(request, "home/form-salas.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
+    return render(request, "home/formularios/form-salas.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 
 
 # Página Formulário de inclusão de material
@@ -168,7 +168,7 @@ def register_iten(request):
     else:
         form = ItemForm()
 
-    return render(request, "home/form-incluir.html", {"form": form, "msg": msg, "success": success, 'segment': 'form-incluir'})
+    return render(request, "home/formularios/form-item.html", {"form": form, "msg": msg, "success": success, 'segment': 'form-incluir'})
 
 
 # View da barra de pesquisa
