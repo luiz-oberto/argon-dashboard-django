@@ -53,13 +53,42 @@ class UORG(models.Model):
     def __str__(self):
         return f"{self.codigo} - {self.nome}"
 
+# CRIAR MODELO BLOCO
+class Bloco(models.Model):
+    BLOCO_CHOICES = [
+        ('BLOCO A', 'Bloco A'),
+        ('BLOCO B', 'Bloco B'),
+        ('BLOCO C', 'Bloco C'),
+        ('BLOCO D', 'Bloco D'),
+        ('BLOCO E', 'Bloco E'),
+        ('BLOCO F', 'Bloco F'),
+        ('BLOCO G', 'Bloco G'),
+        ('BLOCO H', 'Bloco H'),
+        ('BLOCO I', 'Bloco I'),
+        ('BLOCO J', 'Bloco J'),
+        ('BLOCO K', 'Bloco K'),
+        ('BLOCO L', 'Bloco L'),
+        ('BLOCO M', 'Bloco M'),
+        ('BLOCO N', 'Bloco N'),
+        ('BLOCO O', 'Bloco O'),
+        ('BLOCO P', 'Bloco P'),
+        ('BLOCO Q', 'Bloco Q'),
+        ('BLOCO T', 'Bloco T'),
+    ]
+
+    nome = models.CharField(max_length=20, choices=BLOCO_CHOICES, unique=True)
+
+    def __str__(self):
+        return self.nome
+
 # Modelo Sala (Locais pertencentes a uma UORG)
 class Sala(models.Model):
     nome = models.CharField(max_length=50)
     uorg = models.ForeignKey(UORG, on_delete=models.CASCADE, related_name="salas")
+    bloco = models.ForeignKey(Bloco, on_delete=models.CASCADE, related_name="salas")
 
     def __str__(self):
-        return f"{self.nome} - {self.uorg.codigo}"
+        return f"{self.nome} - {self.uorg.codigo} - {self.bloco.nome}"
 
 # Modelo Item (Itens patrimoniais vinculados a uma UORG e opcionalmente a uma Sala)
 class Item(models.Model):

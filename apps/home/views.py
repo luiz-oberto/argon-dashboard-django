@@ -76,7 +76,7 @@ def pages(request):
 
 # Página de consultas
 @login_required(login_url="/login/")
-def consulta(request):
+def consulta_detentor(request):
     # mostrar Detentores cadastrados
     detentores = Detentor.objects.order_by('nome').prefetch_related('uorgs__salas')
 

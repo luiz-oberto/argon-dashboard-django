@@ -122,5 +122,7 @@ STATICFILES_DIRS = (
 
 AUTH_USER_MODEL = "home.Detentor"
 
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
 #############################################################
 #############################################################

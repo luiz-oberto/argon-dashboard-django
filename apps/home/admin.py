@@ -14,6 +14,10 @@ class DetentorAdmin(admin.ModelAdmin):
 class UORGAdmin(admin.ModelAdmin):
     list_display = 'codigo','nome','detentor',
 
+@admin.register(models.Bloco)
+class BlocoAdmin(admin.ModelAdmin):
+    list_display = 'nome',
+
 @admin.register(models.Sala)
 class SalaAdmin(admin.ModelAdmin):
     list_display = 'nome','uorg',
