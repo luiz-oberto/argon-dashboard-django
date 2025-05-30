@@ -41,7 +41,7 @@
           <form method="POST">
 
             {% csrf_token %}
-            <!-- DESCRIÇÃO DA SALA -->
+            <!-- NOME DA SALA -->
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
@@ -51,6 +51,17 @@
               </div>
             </div>
             <span class="text-error">{{ form.nome.errors }}</span>
+
+            <!-- SELEÇÃO DO BLOCO -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
+                </div>
+                {{ form.bloco }} <!-- A tag input surge automaticamente deste objeto -->
+              </div>
+            </div>
+            <span class="text-error">{{ form.bloco.errors }}</span>
             
             <!-- SELEÇÃO DA UORG -->
             <div class="form-group">

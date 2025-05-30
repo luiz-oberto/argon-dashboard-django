@@ -6,7 +6,7 @@ Copyright (c) 2019 - present AppSeed.us
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth.models import User
-from apps.home.models import Detentor, UORG, Sala, Item
+from apps.home.models import Detentor, UORG, Sala, Item, Bloco
 
 # Formulário para inclusão de detentores, UORGs e salas
 class UORGForm(forms.ModelForm):
@@ -38,9 +38,16 @@ class SalaForm(forms.ModelForm):
         widget=forms.Select(attrs={"class": "form-control"})
     )
 
+    bloco = forms.ModelChoiceField(
+        queryset=Bloco.objects.all(),
+        required=True,
+        empty_label="Selecione o Bloco",
+        widget=forms.Select(attrs={"class": "form-control"})
+    )
+
     class Meta:
         model = Sala
-        fields = ['nome', 'uorg']
+        fields = ['nome', 'bloco', 'uorg']
         widgets = {
             'nome': forms.TextInput(attrs={
                 "placeholder": "Nome da sala",

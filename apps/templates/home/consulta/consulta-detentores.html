@@ -34,7 +34,8 @@
             <th scope="col">Nome</th>
             <th scope="col">Posto/Graduação</th>
             <th scope="col">UORG</th>
-            <th scope="col">Salas</th>
+            <th scope="col">Bloco</th>
+            <th scope="col">Sala</th>
             <!-- <th scope="col">Detentor</th> -->
           </tr>
         </thead>
@@ -58,12 +59,22 @@
                           <td>
                               {% for uorg in uorgs %}
                                   {% for sala in uorg.salas.all %}
-                                      {{ sala.nome }}<br>
+                                      {{sala.bloco}}<br>
                                   {% empty %}
                                       Não possui Salas cadastradas<br>
                                   {% endfor %}
                               {% endfor %}
                           </td>
+                          <td>
+                              {% for uorg in uorgs %}
+                                  {% for sala in uorg.salas.all %}
+                                      {{sala.nome}}<br>
+                                  {% empty %}
+                                      Não possui Salas cadastradas<br>
+                                  {% endfor %}
+                              {% endfor %}
+                          </td>
+                        
                       {% else %}
                           <td>Não possui UORGs cadastradas</td>
                           <td>—</td>

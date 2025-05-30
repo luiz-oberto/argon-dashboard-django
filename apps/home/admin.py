@@ -20,7 +20,7 @@ class BlocoAdmin(admin.ModelAdmin):
 
 @admin.register(models.Sala)
 class SalaAdmin(admin.ModelAdmin):
-    list_display = 'nome','uorg',
+    list_display = 'nome','uorg', 'bloco',
 
 @admin.register(models.Item)
 class ItemAdmin(admin.ModelAdmin):
