@@ -96,7 +96,29 @@ def consulta_detentor(request):
             request, 
             'home/consulta/consulta-detentores.html', 
             context)
+    
 
+@login_required(login_url="/login/")
+def consulta_material(request):
+    # mostrar Detentores cadastrados
+    detentores = Detentor.objects.order_by('nome').prefetch_related('uorgs__salas')
+
+    # paginator
+    paginator = Paginator(detentores, 20)
+    page_number = request.GET.get("page")
+    page_obj = paginator.get_page(page_number)
+
+    context = {
+        'segment': 'consulta-itens',
+        'detentores': detentores,
+        'page_obj': page_obj
+    }
+    
+    if request.method == 'GET':
+        return render(
+            request, 
+            'home/consulta/consulta-detentores.html', 
+            context)
 
 # Administracao de Detentores, UORGs e salas
 
