@@ -28,7 +28,7 @@
     
     {% if page_obj %}
     <div class="container">
-      <i class="bi bi-arrow-left"></i>
+      <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
       <table class="table table-striped" id='consultar_itens'>
         <thead>
           <tr>

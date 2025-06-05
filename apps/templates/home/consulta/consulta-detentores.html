@@ -2,10 +2,12 @@
 
 {% block title %} consultar-dententores {% endblock title %}
 
+{% load static %}
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}
-<link rel="stylesheet" href="../../static/assets/css/style-consulta.css">
+<link rel="stylesheet" href="{% static "assets/css/style-consulta.css" %}">
 {% endblock stylesheets %}
+
 
 {% block content %}
     {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
