@@ -24,16 +24,17 @@
         <span aria-hidden="true">×</span>
       </button>
     </form>
-
-
+    
+    
     {% if page_obj %}
     <div class="container">
+      <i class="bi bi-arrow-left"></i>
       <table class="table table-striped" id='consultar_itens'>
         <thead>
           <tr>
-            <th scope="col">Nome</th>
-            <th scope="col">Posto/Graduação</th>
-            <th scope="col">UORG</th>
+            <th scope="col">Número Patrimonial</th>
+            <th scope="col">Item</th>
+            {% comment %} <th scope="col">Descrição</th> {% endcomment %}
             <th scope="col">Bloco</th>
             <th scope="col">Sala</th>
             <!-- <th scope="col">Detentor</th> -->
@@ -41,7 +42,7 @@
         </thead>
         <tbody>
           <!-- Exibir itens do banco de dados -->
-          {% for detentor in page_obj %}
+          {% comment %} {% for detentor in page_obj %}
               <tr>
                 <!-- Detentor -->
                 <th scope="row">{{ detentor.nome }}</th>
@@ -82,7 +83,7 @@
                       {% endif %}
                   {% endwith %}
               </tr>
-          {% endfor %}
+          {% endfor %} {% endcomment %}
         </tbody>
         </table>
       </div>

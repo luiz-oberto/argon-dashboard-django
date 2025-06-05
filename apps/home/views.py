@@ -72,7 +72,7 @@ def pages(request):
         return HttpResponse(html_template.render(context, request))
 
 
-################## consultar material ###########################
+################## CONSULTA ###########################
 
 # Página de consultas
 @login_required(login_url="/login/")
@@ -99,7 +99,7 @@ def consulta_detentor(request):
     
 
 @login_required(login_url="/login/")
-def consulta_material(request):
+def consulta_material(request, detentor_username):
     # mostrar Detentores cadastrados
     detentores = Detentor.objects.order_by('nome').prefetch_related('uorgs__salas')
 
@@ -117,11 +117,12 @@ def consulta_material(request):
     if request.method == 'GET':
         return render(
             request, 
-            'home/consulta/consulta-detentores.html', 
+            'home/consulta/consulta-material.html', 
             context)
 
 # Administracao de Detentores, UORGs e salas
 
+################## REGISTRO ###########################
 
 @user_passes_test(is_admin, login_url='/')
 def register_uorg(request):

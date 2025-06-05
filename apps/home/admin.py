@@ -8,7 +8,7 @@ from . import models
 
 @admin.register(models.Detentor)
 class DetentorAdmin(admin.ModelAdmin):
-    list_display = 'username',
+    list_display = "id",'username', 'is_active', 'is_staff', 
 
 @admin.register(models.UORG)
 class UORGAdmin(admin.ModelAdmin):

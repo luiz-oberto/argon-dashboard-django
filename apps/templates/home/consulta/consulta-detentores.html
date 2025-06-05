@@ -53,7 +53,7 @@
                       {% if uorgs %}
                           <td>
                               {% for uorg in uorgs %}
-                                  <a href="#">{{ uorg.codigo }} - {{ uorg.nome }}</a><br>
+                                  <a href="{% url "consulta-material" detentor.username %}">{{ uorg.codigo }} - {{ uorg.nome }}</a><br>
                               {% endfor %}
                           </td>
                           <td>
