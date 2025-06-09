@@ -24,5 +24,5 @@ class SalaAdmin(admin.ModelAdmin):
 
 @admin.register(models.Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = 'numero_patrimonio','nome',
+    list_display = 'numero_patrimonio','nome', 'uorg', 'sala',
 

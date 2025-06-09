@@ -9,7 +9,7 @@ from apps.home import views
 urlpatterns = [
     path('', views.index, name='home'),
     path("consultar-detentores/", views.consulta_detentor, name="consulta-detentor"),
-    path("consultar-material/<str:detentor_username>", views.consulta_material, name="consulta-material"),
+    path("consultar-material/<str:detentor_username>/<str:uorg_codigo>/", views.consulta_material, name="consulta-material"),
     path("form-uorg/", views.register_uorg, name="registrar-uorg"),
     path("form-salas/", views.register_sala, name="registrar-salas"),
     path("form-itens/", views.register_iten, name="registrar-itens"),

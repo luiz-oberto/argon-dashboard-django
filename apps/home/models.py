@@ -72,7 +72,7 @@ class Bloco(models.Model):
         ('BLOCO N', 'Bloco N'),
         ('BLOCO O', 'Bloco O'),
         ('BLOCO P', 'Bloco P'),
-        ('BLOCO Q', 'Bloco Q'),
+        ('BLOCO Q', 'Bloco Q'), # adicionar BLOCO Q2
         ('BLOCO T', 'Bloco T'),
     ]
 

@@ -16,7 +16,7 @@ from django.core.paginator import Paginator
 from django.db.models import Q
 
 # Importando os models
-from .models import Detentor,UORG, Sala
+from .models import Detentor,UORG, Sala, Item
 
 # impotando forms
 from .forms import UORGForm, SalaForm, ItemForm
@@ -99,18 +99,18 @@ def consulta_detentor(request):
     
 
 @login_required(login_url="/login/")
-def consulta_material(request, detentor_username):
-    # mostrar Detentores cadastrados
-    detentores = Detentor.objects.order_by('nome').prefetch_related('uorgs__salas')
+def consulta_material(request, detentor_username, uorg_codigo):
+    detentor = get_object_or_404(Detentor, username=detentor_username)
+    uorg = get_object_or_404(UORG.objects.prefetch_related('itens__sala'), codigo=uorg_codigo)
+    itens = uorg.itens.all()
 
     # paginator
-    paginator = Paginator(detentores, 20)
+    paginator = Paginator(itens, 20)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
     context = {
         'segment': 'consulta-itens',
-        'detentores': detentores,
         'page_obj': page_obj
     }
     
@@ -120,9 +120,9 @@ def consulta_material(request, detentor_username):
             'home/consulta/consulta-material.html', 
             context)
 
-# Administracao de Detentores, UORGs e salas
 
 ################## REGISTRO ###########################
+# Administracao de Detentores, UORGs e salas
 
 @user_passes_test(is_admin, login_url='/')
 def register_uorg(request):

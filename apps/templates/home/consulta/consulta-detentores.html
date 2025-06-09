@@ -11,6 +11,7 @@
 
 {% block content %}
     {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
+    {% if page_obj %}
     <div class="header bg-primary pb-6"></div>
 
     <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
@@ -28,7 +29,6 @@
     </form>
 
 
-    {% if page_obj %}
     <div class="container">
       <table class="table table-striped" id='consultar_itens'>
         <thead>
@@ -55,7 +55,7 @@
                       {% if uorgs %}
                           <td>
                               {% for uorg in uorgs %}
-                                  <a href="{% url "consulta-material" detentor.username %}">{{ uorg.codigo }} - {{ uorg.nome }}</a><br>
+                                  <a href="{% url "consulta-material" detentor.username uorg.codigo %}">{{ uorg.codigo }} - {{ uorg.nome }}</a><br>
                               {% endfor %}
                           </td>
                           <td>

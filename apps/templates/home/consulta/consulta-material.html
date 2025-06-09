@@ -2,13 +2,17 @@
 
 {% block title %} consultar-dententores {% endblock title %}
 
+
+{% load static %}
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}
-<link rel="stylesheet" href="../../static/assets/css/style-consulta.css">
+<link rel="stylesheet" href="{% static "assets/css/style-consulta.css" %}">
 {% endblock stylesheets %}
+
 
 {% block content %}
     {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
+  {% if page_obj %}
     <div class="header bg-primary pb-6"></div>
 
     <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
@@ -26,7 +30,6 @@
     </form>
     
     
-    {% if page_obj %}
     <div class="container">
       <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
       <table class="table table-striped" id='consultar_itens'>
@@ -41,55 +44,22 @@
           </tr>
         </thead>
         <tbody>
-          <!-- Exibir itens do banco de dados -->
-          {% comment %} {% for detentor in page_obj %}
-              <tr>
-                <!-- Detentor -->
-                <th scope="row">{{ detentor.nome }}</th>
-                  <!-- Posto/grad -->
-                  <td>{{ detentor.graduacao }}</td>
-      
-                  <!-- UORG e Salas -->
-                  {% with detentor.uorgs.all as uorgs %}
-                      {% if uorgs %}
-                          <td>
-                              {% for uorg in uorgs %}
-                              <!-- AJUSTAR PARA PEGAR AS INFORMAÇÕES DO DETENTOR SELECIONADO E REDIRECIONAR PARA A PÁGINA DOS SEUS RESPECTIVOS MATERIAIS -->
-                                  <a href="#">{{ uorg.codigo }} - {{ uorg.nome }}</a><br>
-                              {% endfor %}
-                          </td>
-                          <td>
-                              {% for uorg in uorgs %}
-                                  {% for sala in uorg.salas.all %}
-                                      {{sala.bloco}}<br>
-                                  {% empty %}
-                                      Não possui Salas cadastradas<br>
-                                  {% endfor %}
-                              {% endfor %}
-                          </td>
-                          <td>
-                              {% for uorg in uorgs %}
-                                  {% for sala in uorg.salas.all %}
-                                      {{sala.nome}}<br>
-                                  {% empty %}
-                                      Não possui Salas cadastradas<br>
-                                  {% endfor %}
-                              {% endfor %}
-                          </td>
-                        
-                      {% else %}
-                          <td>Não possui UORGs cadastradas</td>
-                          <td>—</td>
-                      {% endif %}
-                  {% endwith %}
-              </tr>
-          {% endfor %} {% endcomment %}
+          {% for item in page_obj %}
+            <tr>
+              <th scope="row">{{ item.numero_patrimonio }}</th>
+              <th>{{ item.nome }}</th>
+              <th>{{ item.sala.bloco }}</th>
+              <th>{{ item.sala.nome }}</th>
+            </tr>
+          {% endfor %}
         </tbody>
         </table>
       </div>
       {% else %}
         <div>
           <h1>Nenhum Material encontrado</h1>
-    {% endif %}
+          <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
+
+  {% endif %}
     
 {% endblock content %}
