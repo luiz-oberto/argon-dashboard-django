@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} consultar-dententores {% endblock title %}
+{% block title %} consultar-material {% endblock title %}
 
 
 {% load static %}
@@ -11,55 +11,55 @@
 
 
 {% block content %}
-    {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
-  {% if page_obj %}
-    <div class="header bg-primary pb-6"></div>
+{% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
+{% if page_obj %}
+<div class="header bg-primary pb-6"></div>
 
-    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-      <div class="form-group mb-0">
-        <div class="input-group input-group-alternative input-group-merge">
-          <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-search"></i></span>
-          </div>
-          <input class="form-control" placeholder="Search" type="text">
-        </div>
+<form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+  <div class="form-group mb-0">
+    <div class="input-group input-group-alternative input-group-merge">
+      <div class="input-group-prepend">
+        <span class="input-group-text"><i class="fas fa-search"></i></span>
       </div>
-      <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-        <span aria-hidden="true">×</span>
-      </button>
-    </form>
-    
-    
-    <div class="container">
-      <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
-      <table class="table table-striped" id='consultar_itens'>
-        <thead>
-          <tr>
-            <th scope="col">Número Patrimonial</th>
-            <th scope="col">Item</th>
-            {% comment %} <th scope="col">Descrição</th> {% endcomment %}
-            <th scope="col">Bloco</th>
-            <th scope="col">Sala</th>
-            <!-- <th scope="col">Detentor</th> -->
-          </tr>
-        </thead>
-        <tbody>
-          {% for item in page_obj %}
-            <tr>
-              <th scope="row">{{ item.numero_patrimonio }}</th>
-              <th>{{ item.nome }}</th>
-              <th>{{ item.sala.bloco }}</th>
-              <th>{{ item.sala.nome }}</th>
-            </tr>
-          {% endfor %}
-        </tbody>
-        </table>
-      </div>
-      {% else %}
-        <div>
-          <h1>Nenhum Material encontrado</h1>
-          <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
+      <input class="form-control" placeholder="Search" type="text">
+    </div>
+  </div>
+  <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+</form>
+
+
+<div class="container">
+  <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
+  <table class="table table-striped" id='consultar_itens'>
+    <thead>
+      <tr>
+        <th scope="col">Número Patrimonial</th>
+        <th scope="col">Item</th>
+        {% comment %} <th scope="col">Descrição</th> {% endcomment %}
+        <th scope="col">Bloco</th>
+        <th scope="col">Sala</th>
+        <!-- <th scope="col">Detentor</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in page_obj %}
+      <tr>
+        <th scope="row">{{ item.numero_patrimonio }}</th>
+        <th>{{ item.nome }}</th>
+        <th>{{ item.sala.bloco }}</th>
+        <th>{{ item.sala.nome }}</th>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+<div>
+  <h1>Nenhum Material encontrado</h1>
+  <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
 
   {% endif %}
-    
-{% endblock content %}
+
+  {% endblock content %}
