@@ -59,4 +59,4 @@ def register_user(request):
     else:
         form = SignUpForm()
 
-    return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
+    return render(request, "home/formularios/register.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})

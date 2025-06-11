@@ -22,8 +22,81 @@
             </div>
           </div>
         </div>
+        {% endif %}
+        
+        <!--REGISTRAR DETENTOR-->
+        {% if request.path == '/register/' %}
+        <div class="container" id='breadcrumbs'>
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Registrar detentor</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!--REGISTRAR UORG-->
+        {% if request.path == '/form-uorg/' %}
+        <div class="container" id='breadcrumbs'>
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Registrar UORG</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!--REGISTRAR SALAS-->
+        {% if request.path == '/form-salas/' %}
+        <div class="container" id='breadcrumbs'>
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Registrar Salas</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!--REGISTRAR MATERIAL-->
+        {% if request.path == '/form-itens/' %}
+        <div class="container" id='breadcrumbs'>
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Registrar Material</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!--CONSULTAR DETENTORES-->
+        {% if request.path == '/consultar-detentores/' %}
+        <div class="container" id='breadcrumbs'>
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Consultar Detentores</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        <!--CONSULTAR MATERIAL-DETENTOR-->
+        {% if "/consultar-material/" in request.path %}
+        <div class="container" id='breadcrumbs'>
+          <div class="header-body">
+            <div class="row align-items-center">
+              <div class="col-lg-12 col-7">
+                <h6 class="h2 text-white d-inline-block mb-0">Consultar Material</h6>
+              </div>
+            </div>
+          </div>
+        </div>
       {% endif %}
-      
+
       <!-- CONSULTAS -->
       {% if request.path == '/consulta-itens.html' %}
       <div class="container" id="breadcrumbs">
@@ -255,40 +328,6 @@
                 {% comment %} <li class="breadcrumb-item active" aria-current="page"><a href="#">...</a></li> {% endcomment %}
               </ol>
             </nav>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-
-      {% if request.path == '/register/' %}
-      <div class="container" id='breadcrumbs'>
-        <div class="header-body">
-          <div class="row align-items-center">
-            <div class="col-lg-12 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Registrar detentor</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-      {% if request.path == '/form-uorg/' %}
-      <div class="container" id='breadcrumbs'>
-        <div class="header-body">
-          <div class="row align-items-center">
-            <div class="col-lg-12 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Registrar UORG</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endif %}
-      {% if request.path == '/form-salas/' %}
-      <div class="container" id='breadcrumbs'>
-        <div class="header-body">
-          <div class="row align-items-center">
-            <div class="col-lg-12 col-7">
-              <h6 class="h2 text-white d-inline-block mb-0">Registrar Salas</h6>
-            </div>
           </div>
         </div>
       </div>
