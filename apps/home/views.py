@@ -111,7 +111,9 @@ def consulta_material(request, detentor_username: str, uorg_codigo: str):
 
     context = {
         'segment': 'consulta-itens',
-        'page_obj': page_obj
+        'page_obj': page_obj,
+        'detentor_name': detentor_username,
+        'uorg_codigo': uorg_codigo,
     }
     
     if request.method == 'GET':

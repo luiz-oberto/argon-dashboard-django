@@ -13,22 +13,33 @@
 {% block content %}
 {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
 {% if page_obj %}
-<div class="header bg-primary pb-6"></div>
-
-<form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
-  <div class="form-group mb-0">
-    <div class="input-group input-group-alternative input-group-merge">
-      <div class="input-group-prepend">
-        <span class="input-group-text"><i class="fas fa-search"></i></span>
-      </div>
-      <input class="form-control" placeholder="Search" type="text">
+<div class="container mt-3">
+  <div class="row align-items-center justify-content-between">
+    
+    <div class="col-md-auto">
+      {% if detentor_name %}
+        <strong>Detentor:</strong> {{ detentor_name }}
+      {% endif %}
     </div>
-  </div>
-  <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
-    <span aria-hidden="true">×</span>
-  </button>
-</form>
 
+    <div class="col-md-auto">
+      <form class="navbar-search navbar-search-light form-inline" id="navbar-search-main">
+        <div class="form-group mb-0">
+          <div class="input-group input-group-alternative input-group-merge">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input class="form-control" placeholder="Search" type="text">
+          </div>
+        </div>
+        <button type="button" class="close ml-2" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
 
 <div class="container">
   <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>

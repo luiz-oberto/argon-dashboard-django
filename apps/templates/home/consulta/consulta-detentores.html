@@ -1,36 +1,33 @@
 {% extends "layouts/base.html" %}
 
-{% block title %} consultar-dententores {% endblock title %}
+{% block title %}Consultar Detentores{% endblock title %}
 
 {% load static %}
-<!-- Specific CSS goes HERE -->
+
 {% block stylesheets %}
 <link rel="stylesheet" href="{% static "assets/css/style-consulta.css" %}">
 {% endblock stylesheets %}
 
-
 {% block content %}
-    {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
-    {% if page_obj %}
-    <div class="header bg-primary pb-6"></div>
+  {% comment %} Consulta e pesquisa de pessoal/material {% endcomment %}
 
-    <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+  {% if page_obj %}
+  <div class="container">
+    <form class="navbar-search navbar-search-light form-inline mb-4" id="navbar-search-main">
       <div class="form-group mb-0">
         <div class="input-group input-group-alternative input-group-merge">
           <div class="input-group-prepend">
             <span class="input-group-text"><i class="fas fa-search"></i></span>
           </div>
-          <input class="form-control" placeholder="Search" type="text">
+          <input class="form-control" placeholder="Pesquisar..." type="text">
         </div>
       </div>
-      <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+      <button type="button" class="close ml-2" data-action="search-close" data-target="#navbar-search-main" aria-label="Fechar">
         <span aria-hidden="true">×</span>
       </button>
     </form>
 
-
-    <div class="container">
-      <table class="table table-striped" id='consultar_itens'>
+      <table class="table table-striped" id="consultar_itens">
         <thead>
           <tr>
             <th scope="col">Nome</th>
@@ -38,59 +35,56 @@
             <th scope="col">UORG</th>
             <th scope="col">Bloco</th>
             <th scope="col">Sala</th>
-            <!-- <th scope="col">Detentor</th> -->
           </tr>
         </thead>
         <tbody>
-          <!-- Exibir itens do banco de dados -->
           {% for detentor in page_obj %}
-              <tr>
-                <!-- Detentor -->
-                <th scope="row">{{ detentor.nome }}</th>
-                  <!-- Posto/grad -->
-                  <td>{{ detentor.graduacao }}</td>
-      
-                  <!-- UORG e Salas -->
-                  {% with detentor.uorgs.all as uorgs %}
-                      {% if uorgs %}
-                          <td>
-                              {% for uorg in uorgs %}
-                                  <a href="{% url "consulta-material" detentor.username uorg.codigo %}">{{ uorg.codigo }} - {{ uorg.nome }}</a><br>
-                              {% endfor %}
-                          </td>
-                          <td>
-                              {% for uorg in uorgs %}
-                                  {% for sala in uorg.salas.all %}
-                                      {{sala.bloco}}<br>
-                                  {% empty %}
-                                      Não possui Salas cadastradas<br>
-                                  {% endfor %}
-                              {% endfor %}
-                          </td>
-                          <td>
-                              {% for uorg in uorgs %}
-                                  {% for sala in uorg.salas.all %}
-                                      {{sala.nome}}<br>
-                                  {% empty %}
-                                      Não possui Salas cadastradas<br>
-                                  {% endfor %}
-                              {% endfor %}
-                          </td>
-                        
-                      {% else %}
-                          <td>Não possui UORGs cadastradas</td>
-                          <td>—</td>
-                          <td>—</td>
-                      {% endif %}
-                  {% endwith %}
-              </tr>
+            <tr>
+              <th scope="row">{{ detentor.nome }}</th>
+              <td>{{ detentor.graduacao }}</td>
+
+              {% with detentor.uorgs.all as uorgs %}
+                {% if uorgs %}
+                  <td>
+                    {% for uorg in uorgs %}
+                      <a href="{% url "consulta-material" detentor.username uorg.codigo %}">
+                        {{ uorg.codigo }} - {{ uorg.nome }}
+                      </a><br>
+                    {% endfor %}
+                  </td>
+
+                  <td>
+                    {% for uorg in uorgs %}
+                      {% for sala in uorg.salas.all %}
+                        {{ sala.bloco }}<br>
+                      {% empty %}
+                        <span class="text-muted">—</span><br>
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+
+                  <td>
+                    {% for uorg in uorgs %}
+                      {% for sala in uorg.salas.all %}
+                        {{ sala.nome }}<br>
+                      {% empty %}
+                        <span class="text-muted">—</span><br>
+                      {% endfor %}
+                    {% endfor %}
+                  </td>
+                {% else %}
+                  <td colspan="3"><span class="text-muted">Não possui UORGs cadastradas</span></td>
+                {% endif %}
+              {% endwith %}
+            </tr>
           {% endfor %}
         </tbody>
-        </table>
-      </div>
-      {% else %}
-        <div>
-          <h1>Nenhum Material encontrado</h1>
-    {% endif %}
-    
+      </table>
+    </div>
+
+  {% else %}
+    <div class="container">
+      <h4 class="text-center mt-5">Nenhum material encontrado.</h4>
+    </div>
+  {% endif %}
 {% endblock content %}
