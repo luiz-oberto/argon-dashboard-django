@@ -18,7 +18,8 @@
     
     <div class="col-md-auto">
       {% if detentor_name %}
-        <strong>Detentor:</strong> {{ detentor_name }}
+        <strong>Detentor:</strong> {{ detentor_name }} <br>
+        <strong>UORG:</strong> {{ uorg_codigo }}
       {% endif %}
     </div>
 
@@ -67,10 +68,10 @@
   </table>
 </div>
 {% else %}
-<div>
+<div class="container mt-3">
   <h1>Nenhum Material encontrado</h1>
   <a href="{% url "consulta-detentor" %}"><i class="bi bi-arrow-left">voltar</i></a>
-
+</div>
   {% endif %}
 
   {% endblock content %}

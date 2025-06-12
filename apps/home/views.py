@@ -75,6 +75,7 @@ def pages(request):
 ################## CONSULTA ###########################
 
 # Página de consultas
+@user_passes_test(is_admin, login_url='/')
 @login_required(login_url="/login/")
 def consulta_detentor(request):
     # mostrar Detentores cadastrados
@@ -140,7 +141,6 @@ def register_uorg(request):
             msg = 'UORG criada'
             success = True
 
-
         else:
             msg = 'Form is not valid'
     else:
@@ -195,6 +195,7 @@ def register_iten(request):
 
     return render(request, "home/formularios/form-item.html", {"form": form, "msg": msg, "success": success, 'segment': 'form-incluir'})
 
+##########################################################################################################################
 
 # View da barra de pesquisa
 def search(request):
