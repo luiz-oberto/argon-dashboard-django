@@ -125,8 +125,7 @@ def consulta_material(request, detentor_username: str, uorg_codigo: str):
 
 
 ################## REGISTRO ###########################
-# Administracao de Detentores, UORGs e salas
-
+# UORGS
 @user_passes_test(is_admin, login_url='/')
 def register_uorg(request):
     msg = None
@@ -148,7 +147,7 @@ def register_uorg(request):
 
     return render(request, "home/formularios/form-uorg.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 
-
+# SALAS
 @user_passes_test(is_admin, login_url='/')
 def register_sala(request):
     msg = None
@@ -172,7 +171,7 @@ def register_sala(request):
     return render(request, "home/formularios/form-salas.html", {"form": form, "msg": msg, "success": success, 'segment': 'registrar'})
 
 
-# Página Formulário de inclusão de material
+# MATERIAL
 @user_passes_test(is_admin, login_url='/')
 def register_iten(request):
     msg = None
@@ -195,7 +194,20 @@ def register_iten(request):
 
     return render(request, "home/formularios/form-item.html", {"form": form, "msg": msg, "success": success, 'segment': 'form-incluir'})
 
-##########################################################################################################################
+################## TRANSFERÊNCIA ###########################
+@login_required(login_url="/login/")
+def transferencia(request):
+    context = {
+        'segment': 'transferencia',
+    }
+    
+    if request.method == 'GET':
+        return render(
+            request, 
+            'home/formularios/form-transferir.html', 
+            context)
+
+    return render
 
 # View da barra de pesquisa
 def search(request):

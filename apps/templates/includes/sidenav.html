@@ -63,8 +63,8 @@
 
           {% comment %} Tranferência {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link {% if 'form-transferir' in segment or 'consulta-transferencia' in segment %} active {% endif %}" href="/consulta-transferencia.html">
-              <i class="ni ni-send"></i>
+            <a class="nav-link {% if 'form-transferir' in segment or 'consulta-transferencia' in segment %} active {% endif %}" href="{% url "transferencia" %}">
+              <i class="ni ni-send text-primary"></i>
               <span class="nav-link-text">Transferência</span>
             </a>
           </li>
