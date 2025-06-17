@@ -16,33 +16,43 @@
         <div class="header-body">
             <div class="row align-items-center py-4">
                 <div class="col-lg-12 col-7">
-                  <h6 class="h2 text-white d-inline-block mb-0">Transferir material</h6>
-                  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                    <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                      <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                      <li class="breadcrumb-item active" aria-current="page"><a href="consulta-transferencia.html" id="id-itens">Em transferência</a></li>
-                      <li class="breadcrumb-item"><a href="#">Formulário de transferência</a></li>
-                    </ol>
-                  </nav>
-                </div>
-              </div>
-        </div>
-    </div> {% endcomment %}
-</div>
-
+                    <h6 class="h2 text-white d-inline-block mb-0">Transferir material</h6>
+                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item active" aria-current="page"><a href="consulta-transferencia.html" id="id-itens">Em transferência</a></li>
+                            <li class="breadcrumb-item"><a href="#">Formulário de transferência</a></li>
+                            </ol>
+                            </nav>
+                            </div>
+                            </div>
+                            </div>
+                            </div> {% endcomment %}
+                        </div>
+                        
   <!-- 1. Criar o formulário -->
   <div class="container">
-    <div class="row justify-content-center m-4">
-        <div class="col-12 shadow p-3 mb-5 bg-white rounded">
-            <h2>Tranferir material</h2>
-            <form class="row" id="descricao-detentor">
+      <div class="row justify-content-center m-4">
+          <div class="col-12 shadow p-3 mb-5 bg-white rounded">
+              <h2>Tranferir material</h2>
+              <!-- Número patrimonial -->
+              <div class="col-6 mb-4">
+                  <h3>Número de patrimônio:</h3>
+                  <div class="input-group">
+                      <span class="input-group-text">NP</span>
+                      <input type="text" class="form-control" placeholder="Número patrimonial">
+                  </div>
+              </div>
+              
+              
+              <form class="row" id="descricao-detentor">
                 <!-- Detentor destino -->
                 <div class="col-12 mb-4">
                     <label for="descricao" class="form-label">Detentor destino:</label>
                     <input type="text" class="form-control" id="descricao" placeholder="Digite o nome">
                  </div>
                 <!-- Uorg destino -->
-                <div class="col-6 mb-4">
+                <div class="col-12 mb-4">
                     <label for="UORG" class="form-label">UORG destino:</label>
                     <select class="form-select" name="UORG" id="UORG">
                         <option selected>Selecione uma opção</option>
@@ -50,52 +60,28 @@
                         <option value="#">345678</option>
                         <option value="#">678910</option>
                     </select>
-                    <!-- <p>UORG destino:</p>
-                    <div class="input-group mb-4">
-                        <input type="text" class="form-control" placeholder="Digite a UORG">
-                    </div> -->
                 </div>
-                <!-- Local Destino -->
-                 <div class="col-6 mb-4">
-                    <label for="local" class="form-label">Local de destino:</label>
-                    <select class="form-select" name="local" id="local">
-                        <option selected>Selecione um local</option>
-                        <option value="#">CT07</option>
-                        <option value="#">CT11-CT12</option>
-                        <option value="#">DEPÓSITO DTI</option>
-                    </select>
-                    <!-- <p>Local de Destino:</p>
-                    <div class="input-group mb-4">
-                        <input type="text" class="form-control" placeholder="local">
-                    </div> -->
-                </div>
+
             </form>
 
             <!-- MATERIAL -->
-            <form class="row">            
-                <!-- Número patrimonial -->
-                <div class="col-6 mb-4">
-                    <h3>Número de patrimônio:</h3>
-                    <div class="input-group">
-                        <span class="input-group-text">NP</span>
-                        <input type="text" class="form-control" placeholder="Número patrimonial">
-                    </div>
-                </div>
-                <!-- descrição do material -->
-                <div class="col-12 mb-4">
-                    <label for="descricao" class="form-label">Descrição:</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Descrição do material">
-                 </div>
-                <!-- condição do material -->
-                <div class="col-3 mb-4">
-                    <label for="estado" class="form-label">Estado do material</label>
-                    <select class="form-select" name="estado" id="estado">
-                        <option selected>Selecione uma opção</option>
-                        <option value="novo">Novo</option>
-                        <option value="usado">Usado</option>
-                        <option value="quebrado">Quebrado</option>
-                    </select>
-                </div>
+            <form class="row">
+                <table class="table table-striped" id="consultar_itens">
+                        <h3>Materiais incluídos</h3>
+                        <thead>
+                        <tr>
+                            <th scope="col">Número patrimônio</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1234567</th>
+                                <td>COMPUTADOR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
                 <!-- Observações -->
                 <div class="col-12 mb-4">
                     <label for="content" class="form-label">Observações:</label>
@@ -120,23 +106,23 @@
                         <div class="offcanvas-body">
                             <ul class="list-inline">
                                 <li class="list-inline-item">Detentor de destino: </li>
-                                <li class="list-inline-item"><strong>SD HENRICK</strong></li>
+                                <li class="list-inline-item"><strong>SG ELVIS</strong></li>
                             </ul>
                             <table class="table table-striped">
                                 <thead>
                                   <tr>
+                                      <th scope="col">NP</th>
                                     <th scope="col">Descrição</th>
-                                    <th scope="col">NP</th>
                                   </tr>
                                 </thead>
                                 <tbody>
                                   <tr>
+                                      <td>123456</td>
                                     <td>COMPUTADOR DELL 9020</td>
-                                    <td>123456</td>
                                   </tr>
                                   <tr>
+                                      <td>789012</td>
                                     <td>COMPUTADOR DELL 9020</td>
-                                    <td>789012</td>
                                   </tr>
                                 </tbody>
                             </table>
