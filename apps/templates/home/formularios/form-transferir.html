@@ -5,47 +5,29 @@
 {% load static %}
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}
-<link rel="stylesheet" href="{% static "assets/css/style-forms.css" %}">
+<link rel="stylesheet" href="{% static " assets/css/style-forms.css" %}">
 {% endblock stylesheets %}
 
 
 {% block content %}
 
-<div class="header bg-primary pb-6">
-    {% comment %} <div class="container-fluid">
-        <div class="header-body">
-            <div class="row align-items-center py-4">
-                <div class="col-lg-12 col-7">
-                    <h6 class="h2 text-white d-inline-block mb-0">Transferir material</h6>
-                    <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                        <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                            <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><a href="consulta-transferencia.html" id="id-itens">Em transferência</a></li>
-                            <li class="breadcrumb-item"><a href="#">Formulário de transferência</a></li>
-                            </ol>
-                            </nav>
-                            </div>
-                            </div>
-                            </div>
-                            </div> {% endcomment %}
-                        </div>
-                        
-  <!-- 1. Criar o formulário -->
-  <div class="container">
-      <div class="row justify-content-center m-4">
-          <div class="col-12 shadow p-3 mb-5 bg-white rounded">
-              <h2>Tranferir material</h2>
-              <!-- Número patrimonial -->
-              <div class="col-6 mb-4">
-                  <h3>Número de patrimônio:</h3>
-                  <div class="input-group">
-                      <span class="input-group-text">NP</span>
-                      <input type="text" class="form-control" placeholder="Procurar por NP">
-                  </div>
-              </div>
-              
-              <!-- FORMULÁRIO PARA SELEÇÃO DE DETENTOR-UORG -->
-              <!-- <form class="row" id="descricao-detentor">
+
+<!-- 1. Criar o formulário -->
+<div class="container">
+    <div class="row justify-content-center m-4">
+        <div class="col-12 shadow p-3 mb-5 bg-white rounded">
+            <h2>Tranferir material</h2>
+            <!-- Número patrimonial -->
+            <div class="col-6 mb-4">
+                <h3>Número de patrimônio:</h3>
+                <div class="input-group">
+                    <span class="input-group-text">NP</span>
+                    <input type="text" class="form-control" placeholder="Procurar por NP">
+                </div>
+            </div>
+
+            <!-- FORMULÁRIO PARA SELEÇÃO DE DETENTOR-UORG -->
+            <!-- <form class="row" id="descricao-detentor">
                 <div class="col-12 mb-4">
                     <label for="descricao" class="form-label">Detentor destino:</label>
                     <input type="text" class="form-control" id="descricao" placeholder="Digite o nome">
@@ -65,22 +47,22 @@
             <!-- MATERIAL -->
             <form class="row">
                 <table class="table table-striped" id="consultar_itens">
-                        <h3>Materiais incluídos</h3>
-                        <thead>
+                    <h3>Materiais incluídos</h3>
+                    <thead>
                         <tr>
                             <th scope="col">Número patrimônio</th>
                             <th scope="col">Descrição</th>
                         </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <!-- <th scope="row">1234567</th> -->
-                                <th scope="row">-</th>
-                                <td>-</td>
-                                <!-- <td>COMPUTADOR</td> -->
-                            </tr>
-                        </tbody>
-                    </table>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <th scope="row">1234567</th> -->
+                            <th scope="row">-</th>
+                            <td>-</td>
+                            <!-- <td>COMPUTADOR</td> -->
+                        </tr>
+                    </tbody>
+                </table>
 
                 <!-- Observações -->
                 <div class="col-12 mb-4">
@@ -91,13 +73,14 @@
                     <!-- botão de incluir itens -->
                     <button class="btn btn-primary" type="submit">Incluir</button>
                     <!-- Botão de ver os itens inclusos na transferência -->
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">
-                    ver itens
+                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        Escolher Detentor
                     </button>
-                
+
                     <!-- OFF CANVAS -->
-                    <div class="offcanvas offcanvas-end" tabindex="1" id="offcanvasRight" aria-labelledby="OffcanvasLabel">
+                    <div class="offcanvas offcanvas-end" tabindex="1" id="offcanvasRight"
+                        aria-labelledby="OffcanvasLabel">
                         <div class="offcanvas-header">
                             <h5 class="offcanvasLabel">Itens Incluidos</h5>
                             <button class="btn-close text-reset" type="submit" type="button" data-bs-dismiss="offcanvas"
@@ -110,20 +93,20 @@
                             </ul>
                             <table class="table table-striped">
                                 <thead>
-                                  <tr>
-                                      <th scope="col">NP</th>
-                                    <th scope="col">Descrição</th>
-                                  </tr>
+                                    <tr>
+                                        <th scope="col">NP</th>
+                                        <th scope="col">Descrição</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                      <td>123456</td>
-                                    <td>COMPUTADOR DELL 9020</td>
-                                  </tr>
-                                  <tr>
-                                      <td>789012</td>
-                                    <td>COMPUTADOR DELL 9020</td>
-                                  </tr>
+                                    <tr>
+                                        <td>123456</td>
+                                        <td>COMPUTADOR DELL 9020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>789012</td>
+                                        <td>COMPUTADOR DELL 9020</td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <button class="btn btn-primary" type="submit">Revisar transferência</button>
@@ -133,10 +116,9 @@
             </form>
         </div>
     </div>
- </div>
+</div>
 
- <!-- Specific JS goes HERE --> 
+<!-- Specific JS goes HERE -->
 {% block javascripts %}{% endblock javascripts %}
 
 {% endblock content %}
-
