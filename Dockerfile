@@ -13,6 +13,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # running migrations
 RUN python manage.py migrate
 
+# creating Blocos
+#RUN python manage.py criar_blocos
+
 # gunicorn
 CMD ["gunicorn", "--config", "gunicorn-cfg.py", "core.wsgi"]
 
