@@ -26,97 +26,52 @@
                 </div>
             </div>
 
-            <!-- FORMULÁRIO PARA SELEÇÃO DE DETENTOR-UORG -->
-            <!-- <form class="row" id="descricao-detentor">
-                <div class="col-12 mb-4">
-                    <label for="descricao" class="form-label">Detentor destino:</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Digite o nome">
-                 </div>
-                <div class="col-12 mb-4">
-                    <label for="UORG" class="form-label">UORG destino:</label>
-                    <select class="form-select" name="UORG" id="UORG">
-                        <option selected>Selecione uma opção</option>
-                        <option value="#">123456</option>
-                        <option value="#">345678</option>
-                        <option value="#">678910</option>
+            <form class="row" method="POST" action=" {% comment "" %}{% url 'transferir_material' %}{% endcomment %}">
+                {% csrf_token %}
+                <!-- ...tabela de materiais etc... -->
+
+                <!-- DETENTOR -->
+                <div class="col-6 mb-4">
+                    <label for="detentor">Detentor de destino</label>
+                    <select class="form-control select2" id="detentor" name="detentor">
+                        <option value="">Selecione o detentor</option>
+                        {% comment %} {% for detentor in detentores %}
+                            <option value="{{ detentor.id }}">{{ detentor.nome }}</option>
+                        {% endfor %} {% endcomment %}
                     </select>
-                </div> -->
+                </div>
 
-            </form>
+                <!-- UORG (aparece conforme detentor) -->
+                <div class="col-6 mb-4">
+                    <label for="uorg">UORG de destino</label>
+                    <select class="form-control select2" id="uorg" name="uorg" disabled>
+                        <option value="">Selecione a UORG</option>
+                        <!-- opções preenchidas via JS -->
+                    </select>
+                </div>
 
-            <!-- MATERIAL -->
-            <form class="row">
-                <table class="table table-striped" id="consultar_itens">
-                    <h3>Materiais incluídos</h3>
-                    <thead>
-                        <tr>
-                            <th scope="col">Número patrimônio</th>
-                            <th scope="col">Descrição</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <!-- <th scope="row">1234567</th> -->
-                            <th scope="row">-</th>
-                            <td>-</td>
-                            <!-- <td>COMPUTADOR</td> -->
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- SALA (aparece conforme UORG) -->
+                <div class="col-6 mb-4">
+                    <label for="sala">Sala de destino</label>
+                    <select class="form-control select2" id="sala" name="sala" disabled>
+                        <option value="">Selecione a sala</option>
+                        <!-- opções preenchidas via JS -->
+                    </select>
+                </div>
 
                 <!-- Observações -->
                 <div class="col-12 mb-4">
-                    <label for="content" class="form-label">Observações:</label>
-                    <textarea class="form-control" rows="5" placeholder="Observações sobre o material..."></textarea>
+                    <label for="observacoes">Observações:</label>
+                    <textarea class="form-control" id="observacoes" name="observacoes" rows="5"
+                            placeholder="Observações sobre o material..."></textarea>
                 </div>
-                <div class="col-12">
-                    <!-- botão de incluir itens -->
-                    <button class="btn btn-primary" type="submit">Incluir</button>
-                    <!-- Botão de ver os itens inclusos na transferência -->
-                    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        Escolher Detentor
-                    </button>
 
-                    <!-- OFF CANVAS -->
-                    <div class="offcanvas offcanvas-end" tabindex="1" id="offcanvasRight"
-                        aria-labelledby="OffcanvasLabel">
-                        <div class="offcanvas-header">
-                            <h5 class="offcanvasLabel">Itens Incluidos</h5>
-                            <button class="btn-close text-reset" type="submit" type="button" data-bs-dismiss="offcanvas"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">Detentor de destino: </li>
-                                <li class="list-inline-item"><strong>SG ELVIS</strong></li>
-                            </ul>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">NP</th>
-                                        <th scope="col">Descrição</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>123456</td>
-                                        <td>COMPUTADOR DELL 9020</td>
-                                    </tr>
-                                    <tr>
-                                        <td>789012</td>
-                                        <td>COMPUTADOR DELL 9020</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-primary" type="submit">Revisar transferência</button>
-                        </div>
-                    </div>
+                <!-- Botões -->
+                <div class="col-12 mb-4">
+                    <button class="btn btn-primary" type="submit">Incluir</button>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
+
 
 <!-- Specific JS goes HERE -->
 {% block javascripts %}{% endblock javascripts %}
