@@ -209,6 +209,23 @@ def transferencia(request):
 
     return render
 
+@login_required(login_url="/login/")
+def consultar_transferencias(request):
+    context = {
+        'segment': 'transferencia',
+    }
+    
+    if request.method == 'GET':
+        return render(
+            request, 
+            'home/consulta/consulta-transferencia.html', 
+            context)
+
+    return render
+
+
+#############################################################
+
 # View da barra de pesquisa
 def search(request):
     search_value = request.GET.get('q', '').strip()

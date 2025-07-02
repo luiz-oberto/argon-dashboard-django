@@ -62,11 +62,27 @@
           {% endif %}
 
           {% comment %} Tranferência {% endcomment %}
-          <li class="nav-item">
-            <a class="nav-link {% if 'form-transferir' in segment or 'consulta-transferencia' in segment %} active {% endif %}" href="{% url "transferencia" %}">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle {% if 'transferencia' in segment %} active {% endif %}" 
+              href="#" 
+              id="sidebarTransferDropdown" 
+              data-bs-toggle="dropdown" 
+              aria-expanded="false">
               <i class="ni ni-send text-primary"></i>
               <span class="nav-link-text">Transferência</span>
             </a>
+            <ul class="dropdown-menu" aria-labelledby="sidebarTransferDropdown">
+              <li>
+                <a class="dropdown-item" href="{% url 'consultar-transferencias' %}">
+                  Consultar Transferências
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{% url 'transferencia' %}">
+                  Nova Transferência
+                </a>
+              </li>
+            </ul>
           </li>
 
           <!-- ################ Descarga ##################### -->
