@@ -4,6 +4,8 @@ Copyright (c) 2019 - present AppSeed.us
 """
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.utils import timezone
+
 
 class DetentorManager(BaseUserManager):
     def create_user(self, username, email, password=None, **extra_fields):
@@ -101,3 +103,53 @@ class Item(models.Model):
 
     def __str__(self):
         return f"{self.numero_patrimonio} - {self.nome}"
+
+# transferencia
+class Transferencia(models.Model):
+    STATUS_CHOICES = [
+        ('pendente', 'Pendente'),
+        ('autorizada', 'Autorizada'),
+        ('recusada', 'Recusada'),
+        ('cancelada', 'Cancelada'),
+    ]
+    detentor_origem = models.ForeignKey(
+        'Detentor', on_delete=models.PROTECT, related_name='transferencias_origem'
+    )
+    detentor_destino = models.ForeignKey(
+        'Detentor', on_delete=models.PROTECT, related_name='transferencias_destino'
+    )
+    gerente = models.ForeignKey(
+        'Detentor', on_delete=models.PROTECT, related_name='transferencias_gerente'
+    )
+    uorg_origem = models.ForeignKey(
+        'UORG', on_delete=models.PROTECT, related_name='transferencias_uorg_origem'
+    )
+    uorg_destino = models.ForeignKey(
+        'UORG', on_delete=models.PROTECT, related_name='transferencias_uorg_destino'
+    )
+    sala_origem = models.ForeignKey(
+        'Sala', on_delete=models.PROTECT, related_name='transferencias_sala_origem', null=True, blank=True
+    )
+    sala_destino = models.ForeignKey(
+        'Sala', on_delete=models.PROTECT, related_name='transferencias_sala_destino', null=True, blank=True
+    )
+    status_transferencia = models.CharField(
+        max_length=20, choices=STATUS_CHOICES, default='pendente'
+    )
+    obs = models.TextField(blank=True, null=True)
+    data_criacao = models.DateTimeField(auto_now_add=True)
+    data_atualizacao = models.DateTimeField(auto_now=True)
+    data_aprovacao = models.DateTimeField(blank=True, null=True)
+
+    def __str__(self):
+        return f'Transferência #{self.id} - {self.get_status_transferencia_display()}'
+
+class TransferenciaItem(models.Model):
+    transferencia = models.ForeignKey(
+        'Transferencia', on_delete=models.CASCADE, related_name='itens'
+    )
+    item = models.ForeignKey('Item', on_delete=models.PROTECT, related_name='itens_transferidos')
+
+    def __str__(self):
+        return f'{self.item} (Transf. {self.transferencia.id})'
+

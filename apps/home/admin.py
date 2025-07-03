@@ -26,3 +26,6 @@ class SalaAdmin(admin.ModelAdmin):
 class ItemAdmin(admin.ModelAdmin):
     list_display = 'numero_patrimonio','nome', 'uorg', 'sala',
 
+@admin.register(models.Transferencia)
+class TransferenciaAdmin(admin.ModelAdmin):
+    list_display = 'detentor_origem','detentor_destino', 'gerente', 'uorg_origem', 'uorg_destino', 'sala_origem', 'sala_destino', 'status_transferencia',

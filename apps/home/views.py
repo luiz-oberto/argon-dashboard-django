@@ -197,6 +197,11 @@ def register_iten(request):
 ################## TRANSFERÊNCIA ###########################
 @login_required(login_url="/login/")
 def transferencia(request):
+    msg = None
+    success = False
+    form = None
+
+
     context = {
         'segment': 'transferencia',
     }
