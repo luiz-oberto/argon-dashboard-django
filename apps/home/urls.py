@@ -11,6 +11,7 @@ urlpatterns = [
     # consultas
     path("consultar-detentores/", views.consulta_detentor, name="consulta-detentor"),
     path("consulta-material/<str:detentor_username>/<str:uorg_codigo>/", views.consulta_material, name="consulta-material"),
+    path("sem-uorg/", views.sem_uorg, name="sem-uorg"),
     path("form-uorg/", views.register_uorg, name="registrar-uorg"),
     path("form-salas/", views.register_sala, name="registrar-salas"),
     path("form-itens/", views.register_iten, name="registrar-itens"),

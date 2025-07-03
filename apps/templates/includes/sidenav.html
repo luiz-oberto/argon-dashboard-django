@@ -25,49 +25,59 @@
 
           {% comment %} cosulta {% endcomment %}
           {% if request.user.is_staff %}
-          <li class="nav-item">
-            <!-- SE consulta-itens OU consulta-detentores estiver no segmento => ative a cor da div -->
-            <a class="nav-link {% if 'consulta-itens' in segment or 'consultar-detentores' in segment %} active {% endif %}" href="{% url "consulta-detentor" %}">
-              <i class="ni ni-zoom-split-in text-primary"></i>
-              <span class="nav-link-text">Consultar</span>
-            </a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link {% if 'consulta-itens' in segment or 'consultar-detentores' in segment %} active {% endif %}" href="{% url "consulta-material" detentor_username uorg_codigo %}">
-              <i class="ni ni-zoom-split-in text-primary"></i>
-              <span class="nav-link-text">Consultar</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% comment %} Inclusão de material {% endcomment %}
-          {% if request.user.is_staff%}
             <li class="nav-item">
-              <a class="nav-link {% if 'form-incluir' in segment or 'consulta-inclusao' in segment %} active {% endif %}" href="{% url "registrar-itens" %}">
-                <i class="ni ni-fat-add text-primary"></i>
-                <span class="nav-link-text">Incluir material</span>
+              <!-- SE consulta-itens OU consulta-detentores estiver no segmento => ative a cor da div -->
+              <a class="nav-link {% if 'consulta-itens' in segment or 'consultar-detentores' in segment %} active {% endif %}"
+                href="{% url " consulta-detentor" %}">
+                <i class="ni ni-zoom-split-in text-primary"></i>
+                <span class="nav-link-text">Consultar</span>
               </a>
             </li>
-            
-            <!-- LINK - PÁGINA DE REGISTRO DETENTOR -->
-            {% if request.user.is_staff%}
+          {% else %}
+            <!--Verifica se o usuário logado possui uorg cadastrada-->
+            {% if possui_uorg %}
               <li class="nav-item">
-                <a class="nav-link {% if 'registrar' in segment %} active {% endif %}" href="{% url 'register' %}">
-                  <i class="ni ni-circle-08 text-primary"></i>
-                  <span class="nav-link-text">Registrar</span>
+                <a class="nav-link {% if 'consulta-itens' in segment or 'consultar-detentores' in segment %} active {% endif %}"
+                  href="{% url " consulta-material" detentor_username uorg_codigo %}">
+                  <i class="ni ni-zoom-split-in text-primary"></i>
+                  <span class="nav-link-text">Consultar</span>
+                </a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'sem-uorg' %}">
+                  <i class="ni ni-zoom-split-in text-warning"></i>
+                  <span class="nav-link-text">Consultar</span>
                 </a>
               </li>
             {% endif %}
           {% endif %}
 
+          {% comment %} Inclusão de material {% endcomment %}
+          {% if request.user.is_staff%}
+          <li class="nav-item">
+            <a class="nav-link {% if 'form-incluir' in segment or 'consulta-inclusao' in segment %} active {% endif %}"
+              href="{% url " registrar-itens" %}">
+              <i class="ni ni-fat-add text-primary"></i>
+              <span class="nav-link-text">Incluir material</span>
+            </a>
+          </li>
+
+          <!-- LINK - PÁGINA DE REGISTRO DETENTOR -->
+          {% if request.user.is_staff%}
+          <li class="nav-item">
+            <a class="nav-link {% if 'registrar' in segment %} active {% endif %}" href="{% url 'register' %}">
+              <i class="ni ni-circle-08 text-primary"></i>
+              <span class="nav-link-text">Registrar</span>
+            </a>
+          </li>
+          {% endif %}
+          {% endif %}
+
           {% comment %} Tranferência {% endcomment %}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {% if 'transferencia' in segment %} active {% endif %}" 
-              href="#" 
-              id="sidebarTransferDropdown" 
-              data-bs-toggle="dropdown" 
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle {% if 'transferencia' in segment %} active {% endif %}" href="#"
+              id="sidebarTransferDropdown" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="ni ni-send text-primary"></i>
               <span class="nav-link-text">Transferência</span>
             </a>
@@ -95,7 +105,8 @@
 
           {% comment %} cautela {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link {% if 'consulta-cautela' in segment or  'form-cautela' in segment %} active {% endif %}" href="/consulta-cautela.html">
+            <a class="nav-link {% if 'consulta-cautela' in segment or  'form-cautela' in segment %} active {% endif %}"
+              href="/consulta-cautela.html">
               <i class="bi bi-person-fill-lock"></i>
               <span class="nav-link-text">Cautela</span>
             </a>
@@ -103,7 +114,8 @@
 
           {% comment %} Relatório {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link {% if 'consulta-relatorio' in segment %} active {% endif %}" href="/consulta-relatorio-registros.html">
+            <a class="nav-link {% if 'consulta-relatorio' in segment %} active {% endif %}"
+              href="/consulta-relatorio-registros.html">
               <i class="bi bi-journal-check"></i>
               <span class="nav-link-text">Relatório</span>
             </a>
@@ -111,7 +123,8 @@
 
           {% comment %} Instrução normativa {% endcomment %}
           <li class="nav-item">
-            <a class="nav-link {% if 'consulta-instrucao' in segment %} active {% endif %}" href="/consulta-instrucao.html">
+            <a class="nav-link {% if 'consulta-instrucao' in segment %} active {% endif %}"
+              href="/consulta-instrucao.html">
               <i class="bi bi-journal-text"></i>
               <span class="nav-link-text">Instrução normativa</span>
             </a>
@@ -150,7 +163,7 @@
               <i class="ni ni-user-run text-red"></i>
               <span class="nav-link-text">Logout</span>
             </a>
-          </li>            
+          </li>
         </ul>
         <!-- Divider -->
         <hr class="my-3">

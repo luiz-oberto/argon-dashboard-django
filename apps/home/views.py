@@ -103,9 +103,12 @@ def consulta_detentor(request):
 def consulta_material(request, detentor_username: str, uorg_codigo: str):
     detentor = get_object_or_404(Detentor, username=detentor_username)
     uorg = get_object_or_404(UORG.objects.prefetch_related('itens__sala'), codigo=uorg_codigo)
+    
+    # Extra: garanta que esse detentor realmente pertence à UORG informada
+    if not detentor.uorg or detentor.uorg.codigo != uorg_codigo:
+        return render(request, 'home/exceptions/sem-uorg.html', {'segment': 'consulta-itens'})
+    
     itens = uorg.itens.all()
-
-    # paginator
     paginator = Paginator(itens, 20)
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
@@ -116,12 +119,16 @@ def consulta_material(request, detentor_username: str, uorg_codigo: str):
         'detentor_name': detentor_username,
         'uorg_codigo': uorg_codigo,
     }
-    
-    if request.method == 'GET':
-        return render(
-            request, 
-            'home/consulta/consulta-material.html', 
-            context)
+
+    return render(request, 'home/consulta/consulta-material.html', context)
+
+# EXECEÇÃO: SEM UORG PARA CONSULTAR
+@login_required(login_url="/login/")
+def sem_uorg(request):
+    context = {
+        'segment': 'consulta-itens',
+        }
+    return render(request, 'home/exceptions/sem-uorg.html', context)
 
 
 ################## REGISTRO ###########################
