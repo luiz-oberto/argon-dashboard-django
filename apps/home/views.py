@@ -102,10 +102,8 @@ def consulta_detentor(request):
 @login_required(login_url="/login/")
 def consulta_material(request, detentor_username: str, uorg_codigo: str):
     detentor = get_object_or_404(Detentor, username=detentor_username)
-    uorg = get_object_or_404(UORG.objects.prefetch_related('itens__sala'), codigo=uorg_codigo)
-    
-    # Extra: garanta que esse detentor realmente pertence à UORG informada
-    if not detentor.uorg or detentor.uorg.codigo != uorg_codigo:
+    uorg = detentor.uorgs.filter(codigo=uorg_codigo).prefetch_related('itens__sala').first()
+    if not uorg:
         return render(request, 'home/exceptions/sem-uorg.html', {'segment': 'consulta-itens'})
     
     itens = uorg.itens.all()
